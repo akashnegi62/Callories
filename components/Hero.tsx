@@ -143,18 +143,18 @@ export default function Hero() {
 
         {/* ───────── GHOST TEXT ───────── */}
         <div className="absolute inset-0 z-10 pointer-events-none select-none">
-          <div className="absolute top-[8%] left-[4%] text-white/20 font-bold text-[clamp(2rem,5vw,4rem)] leading-[1.1] tracking-tight">
+          <div className="absolute top-20 lg:top-[4%] 2xl:top-[8%] left-[4%] text-white/20 font-bold text-[clamp(2rem,5vw,4rem)] leading-[1.1] tracking-tight">
             Build <br /> Your Strength{" "}
           </div>
 
-          <div className="absolute bottom-[12%] right-[2%] text-white/20 font-bold text-[clamp(2rem,5vw,4rem)] leading-[1.1] tracking-tight">
+          <div className="absolute bottom-20 lg:bottom-[4%] 2xl:bottom-[12%] right-[2%] text-white/20 font-bold text-[clamp(2rem,5vw,4rem)] leading-[1.1] tracking-tight">
             Play More, <br /> See Real Results
           </div>
         </div>
 
         {/* ───────── UI ───────── */}
         <motion.div
-          className="absolute bottom-0 left-0 right-0 z-40 flex justify-between px-8 pb-8"
+          className="absolute bottom-0 lg:-bottom-5 2xl:bottom-0 left-0 right-0 z-40 flex justify-between px-8 pb-8"
           style={{ opacity: overlayOpacity }}
         >
           <div className="flex items-center gap-3 text-white/60 text-xs tracking-widest">

@@ -4,6 +4,7 @@ import SolutionSection from "@/components/SolutionSection";
 import OfferSection from "@/components/OfferSection";
 import ReviewSection from "@/components/ReviewSection";
 import PricingSection from "@/components/PricingSection";
+import TrialSection from "@/components/TrialSection";
 
 function Page() {
   return (
@@ -14,6 +15,7 @@ function Page() {
       <OfferSection />
       <ReviewSection />
       <PricingSection />
+      <TrialSection />
     </main>
   );
 }

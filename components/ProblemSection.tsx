@@ -78,7 +78,7 @@ export default function ProblemSection() {
     // Increased height to 700vh for smoother, longer scroll transitions
     <section
       ref={containerRef}
-      className="relative bg-[#E6E6E6] text-zinc-950 min-h-[700vh] font-sans pb-50"
+      className="relative bg-[#E6E6E6] text-zinc-950 min-h-[700vh] font-sans pb-30 md:pb-50 lg:pb-80"
     >
       {/* Texture overlay (Optional) */}
       <div
@@ -101,7 +101,7 @@ export default function ProblemSection() {
         </div>
 
         {/* Video Container */}
-        <div className="w-[80%] h-[25vh] md:h-[70vh] shrink-0 z-10">
+        <div className="w-[85%] md:w-[90%] h-[25vh] md:h-[70vh] shrink-0 z-10">
           <AnimatePresence mode="wait">
             <motion.div
               key={`video-${activeData.id}`}
@@ -123,8 +123,9 @@ export default function ProblemSection() {
           </AnimatePresence>
         </div>
 
-        {/* Single Card Container - Recreated based on your new elegant screenshot */}
-        <div className="relative w-85 md:w-95 h-105 md:h-115 shrink-0 z-20 -mt-100">
+        {/* Single Card Container */}
+        {/* We change -mt-100 to: mt-10 (mobile gap) and md:-mt-100 (desktop overlap) */}
+        <div className="relative w-85 md:w-95 h-105 md:h-115 shrink-0 z-20 mt-10 md:-mt-100">
           <AnimatePresence mode="wait">
             <motion.div
               key={`card-${activeData.id}`}
@@ -136,7 +137,7 @@ export default function ProblemSection() {
             >
               {/* Card UI */}
               <div className="bg-white border border-zinc-200 rounded-3xl p-8 md:p-10 flex flex-col relative shadow-[0_8px_30px_rgb(0,0,0,0.06)] w-full h-full overflow-hidden">
-                {/* Small Header (e.g. PRODUCTION) */}
+                {/* Small Header */}
                 <span className="text-[11px] md:text-xs uppercase text-zinc-400 tracking-[0.2em] font-semibold mb-6 z-10">
                   {activeData.eyebrow}
                 </span>

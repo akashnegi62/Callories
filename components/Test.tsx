@@ -5,14 +5,14 @@ import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
 import Image from "next/image";
 
 const gridImages = [
-  "/Img/offer.avif",
+  "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=600&auto=format&fit=crop",
   "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=600&auto=format&fit=crop",
   "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=600&auto=format&fit=crop",
   "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=600&auto=format&fit=crop",
   "https://images.unsplash.com/photo-1574680077505-ef9964d51b38?q=80&w=600&auto=format&fit=crop",
   "https://images.unsplash.com/photo-1599058917212-d750089bc07e?q=80&w=600&auto=format&fit=crop",
   "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=600&auto=format&fit=crop",
-  "/assets/center-image.jpg", // INDEX 7: The central hero image
+  "/assets/center-image.jpg",
   "https://images.unsplash.com/photo-1526506115366-5121b6441221?q=80&w=600&auto=format&fit=crop",
   "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?q=80&w=600&auto=format&fit=crop",
   "https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=600&auto=format&fit=crop",
@@ -22,6 +22,7 @@ const gridImages = [
   "https://images.unsplash.com/photo-1550345332-09e3ac987658?q=80&w=600&auto=format&fit=crop",
 ];
 
+// ... SCATTER Record remains the same ...
 const SCATTER: Record<
   number,
   { x: number; y: number; rotate: number; scale: number }
@@ -69,24 +70,18 @@ function SurroundingCard({
 
 export default function OfferSection() {
   const containerRef = useRef<HTMLDivElement>(null);
-
-  const [scaleRange, setScaleRange] = useState([2.6, 2.6, 0.9]);
+  const [scaleRange, setScaleRange] = useState([2.6, 2.6, 1.0]);
 
   // Responsive Scale Detection
   useEffect(() => {
     const handleResize = () => {
-      const width = window.innerWidth;
-
-      // 2. Logic for 3-tier scaling
-      if ((width >= 768 && width < 1024) || (width >= 820 && width < 1280)) {
-        // TABLET range
+      // For Tablet/Mobile (anything under 1024px)
+      if (window.innerWidth < 1024) {
         setScaleRange([2.6, 2.6, 0.6]);
       } else {
-        // MOBILE and DESKTOP
-        setScaleRange([2.6, 2.6, 0.9]);
+        setScaleRange([2.6, 2.6, 1.0]);
       }
     };
-
     handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
@@ -97,14 +92,13 @@ export default function OfferSection() {
     offset: ["start start", "end end"],
   });
 
-  // ── Animations ──
+  // Animations
   const heroY = useTransform(scrollYProgress, [0, 0.15], ["20vh", "0vh"]);
   const heroScale = useTransform(
     scrollYProgress,
     [0.3, 0.45, 0.92],
     scaleRange,
   );
-
   const gridVisible = useTransform(scrollYProgress, (v) =>
     v >= 0.44 ? "visible" : "hidden",
   );
@@ -123,7 +117,7 @@ export default function OfferSection() {
       </div>
 
       <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center">
-        {/* --- GRID: Changed to 3 columns for mobile, 5 for desktop --- */}
+        {/* GRID */}
         <motion.div
           style={{ visibility: gridVisible }}
           className="grid grid-cols-3 md:grid-cols-5 gap-3 w-full max-w-[1300px] px-8"
@@ -150,22 +144,23 @@ export default function OfferSection() {
 
         {/* HERO CARD */}
         <motion.div
-          className="absolute z-40 will-change-transform"
+          className="absolute z-40 will-change-transform rounded-2xl overflow-hidden shadow-2xl"
           style={{
             scale: heroScale,
             y: heroY,
-            width: "clamp(100px, 28vw, 260px)",
-            aspectRatio: "1 / 1",
+            // Calculate base width: 1/3 of grid area for tablet, 1/5 for desktop
+            width: "calc((min(1300px, 100vw) - 80px) / 3)",
           }}
         >
-          <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl">
+          {/* Desktop Width Override wrapper */}
+          <div className="md:w-[calc((min(1300px,100vw)-100px)/5)] w-full h-full relative aspect-square">
             <Image
-              src={gridImages[0]}
+              src={gridImages[7]}
               alt="Hero"
               fill
-              className="object-cover"
+              className="object-cover grayscale-25"
               priority
-              sizes="(max-width: 768px) 30vw, 260px"
+              sizes="(max-width: 1024px) 33vw, 20vw"
             />
 
             <motion.div className="absolute inset-0 flex items-center justify-center p-3">
