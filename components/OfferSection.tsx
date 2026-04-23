@@ -110,7 +110,7 @@ export default function OfferSection() {
   );
 
   return (
-    <section ref={containerRef} className="relative h-[700vh] bg-[#E4E2DC]">
+    <section ref={containerRef} className="relative h-[700vh] bg-[#E4E2DC] pb-0 md:pb-0 lg:pb-40 2xl:pb-0">
       {/* Heading */}
       <div className="absolute top-0 w-full flex flex-col items-center pt-40 px-6 text-center z-50 pointer-events-none">
         <h1 className="font-black uppercase text-[#111] leading-[0.9] tracking-tight text-5xl md:text-7xl">
