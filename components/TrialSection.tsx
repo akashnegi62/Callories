@@ -41,7 +41,7 @@ export default function TrialSection() {
               className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-in-out"
             />
           </div>
-          <motion.div className="w-72 h-72 md:w-108 md:h-108 bg-[#1a1a1a]">
+          <motion.div className="w-72 h-72 md:w-55 md:h-55 lg:w-100 lg:h-100 2xl:w-108 2xl:h-108 bg-[#1a1a1a]">
             <motion.div
               initial="hidden"
               whileInView="visible"
@@ -68,7 +68,7 @@ export default function TrialSection() {
               className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-in-out"
             />
           </div>
-          <motion.div className="w-72 h-72 md:w-108 md:h-108 bg-[#1a1a1a]">
+          <motion.div className="w-72 h-72 md:w-55 md:h-55 lg:w-100 lg:h-100 2xl:w-108 2xl:h-108 bg-[#1a1a1a]">
             <motion.div
               initial="hidden"
               whileInView="visible"
@@ -87,7 +87,7 @@ export default function TrialSection() {
 
         {/* --- Benefit 3: Gray Circle Left, Wide Image Right + CTA --- */}
         <div className="flex flex-col md:flex-row items-end gap-0 relative mb-20">
-          <motion.div className="w-72 h-72 md:w-150 md:h-114 bg-[#1a1a1a]">
+          <motion.div className="w-72 h-72 md:w-60 md:h-60 lg:w-132 lg:h-108 2xl:w-150 2xl:h-114 bg-[#1a1a1a]">
             <motion.div
               initial="hidden"
               whileInView="visible"
@@ -118,7 +118,7 @@ export default function TrialSection() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="w-32 h-32 md:w-40 md:h-40 bg-zinc-800 border border-zinc-700 rounded-full flex items-center justify-center text-center p-4 shadow-xl group"
+              className="w-32 h-32  md:w-30 md:h-30 lg:w-40 lg:h-40 2xl:w-40 2xl:h-40 bg-zinc-800 border border-zinc-700 rounded-full flex items-center justify-center text-center p-4 shadow-xl group"
             >
               <span className="text-[10px] md:text-xs font-black uppercase tracking-widest leading-tight group-hover:text-zinc-200 transition-colors">
                 Talk to <br /> coach
@@ -129,7 +129,7 @@ export default function TrialSection() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="w-44 h-44 md:w-56 md:h-56 bg-[#e6000b] rounded-full flex items-center justify-center text-center p-6 shadow-[0_20px_50px_rgba(230,0,11,0.3)]"
+              className="w-44 h-44 md:w-40 md:h-40 lg:w-56 lg:h-56 2xl:w-56 2xl:h-56 bg-[#e6000b] rounded-full flex items-center justify-center text-center p-6 shadow-[0_20px_50px_rgba(230,0,11,0.3)]"
             >
               <span className="text-sm md:text-lg font-black uppercase leading-tight tracking-tight">
                 Start free <br /> trial [+]

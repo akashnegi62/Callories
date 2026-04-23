@@ -98,7 +98,7 @@ export default function OfferSection() {
   });
 
   // ── Animations ──
-  const heroY = useTransform(scrollYProgress, [0, 0.15], ["20vh", "0vh"]);
+  const heroY = useTransform(scrollYProgress, [0, 0.15], ["40vh", "0vh"]);
   const heroScale = useTransform(
     scrollYProgress,
     [0.3, 0.45, 0.92],
