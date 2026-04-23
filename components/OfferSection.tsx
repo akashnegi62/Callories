@@ -172,7 +172,7 @@ export default function OfferSection() {
             />
 
             <motion.div className="absolute inset-0 flex items-center justify-center p-3">
-              <h2 className="text-white font-black uppercase text-center leading-[0.88] text-[clamp(1rem,2.2em,3rem)] tracking-[-0.02em]">
+              <h2 className="text-white font-black uppercase text-center leading-[0.88] text-[clamp(1rem,2.2vw,3rem)] md:text-[clamp(2rem,2.5vw,3.5rem)] lg:text-[clamp(2.5rem,3vw,4rem)] 2xl:text-[clamp(1.8rem,2vw,4rem)] tracking-[-0.02em]">
                 What
                 <br />
                 We
