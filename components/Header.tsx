@@ -53,7 +53,7 @@ export default function Header() {
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           {/* --- Logo --- */}
           <Link href="/" className="group">
-            <h1 className="text-2xl md:text-3xl font-[FormulaBold] uppercase tracking-tighter text-white">
+            <h1 className="text-2xl md:text-3xl font-[FormulaBold] uppercase tracking-widest text-white">
               CALLORIES<span className="text-(--red)">.</span>
             </h1>
           </Link>
@@ -123,7 +123,7 @@ export default function Header() {
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
-              className="lg:hidden bg-black border-t border-white/5 overflow-hidden"
+              className="lg:hidden bg-(--glass-bg) border-t border-white/20 overflow-hidden rounded-b-2xl"
             >
               <div className="flex flex-col p-8 gap-6">
                 {navTabs.map((tab) => (
@@ -218,7 +218,7 @@ function FillButton({
     <motion.button
       initial="initial"
       whileHover="hover"
-      className={`relative overflow-hidden px-7 py-3 rounded-full border text-[10px] font-[Helvetica] font-bold uppercase tracking-[0.15em] flex items-center gap-2 group z-10 ${className}`}
+      className={`relative overflow-hidden px-7 py-3 rounded-full border text-[12px] font-[Helvetica] font-bold uppercase tracking-[0.15em] flex items-center gap-2 group z-10 ${className}`}
     >
       <span
         className={`relative z-30 flex items-center gap-2 text-white transition-colors duration-300 ${hoverTextColor}`}
