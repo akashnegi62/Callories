@@ -64,7 +64,7 @@ export default function PricingSection() {
         <div className="mb-20 text-center md:text-left">
           {/* Tablet optimization: md:text-5xl (Desktop stays 6xl) */}
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tighter leading-none mb-4">
-            CHOOSE <span className="text-(--red)">YOUR POWER</span> PLAN
+            CHOOSE <span className="text-(--red) font-[FormulaBold] tracking-widest">YOUR POWER</span> PLAN
           </h2>
           <p className="text-(--dark-text) font-[Helvetica] max-w-md text-sm md:text-base mx-auto md:mx-0">
             Flexible memberships for all fitness levels with expert guidance and

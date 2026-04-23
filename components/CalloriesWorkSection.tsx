@@ -44,9 +44,9 @@ export default function WhyWorksSection() {
               The Methodology
             </span>
           </div>
-          <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter leading-[0.85] text-(--dark-text)">
+          <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter leading-[1.2] text-(--dark-text)">
             Why Callories <br className="hidden md:block" />
-            <span className="text-zinc-500">Actually Works</span>
+            <span className="text-(--red) font-[FormulaBold] tracking-widest">Actually Works</span>
           </h2>
         </div>
 

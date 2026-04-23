@@ -83,14 +83,14 @@ export default function PlanDietSection() {
           className="space-y-8"
         >
           <div className="space-y-4">
-            <h2 className="text-4xl md:text-7xl font-black uppercase tracking-tighter text-(--white-text)">
+            <h2 className="text-4xl md:text-7xl font-black uppercase text-(--white-text)">
               We Don’t Just Plan Your Diet. <br />
-              <span className="text-(--red)">We Deliver It</span>
+              <span className="text-(--red) font-[FormulaBold] tracking-wider">We Deliver It</span>
             </h2>
             <p className="text-2xl font-[FormulaBold] text-(--white-text) uppercase tracking-wider">
               Too Busy and Struggling to Follow Your Diet? We’ll Handle It.
             </p>
-            <p className="text-(--white-text) font-[Helvetica] max-w-lg leading-relaxed">
+            <p className="text-(--white-text) text-lg font-[Helvetica] max-w-lg leading-relaxed">
               With Callories, you don’t have to think about what to eat — we
               prepare and deliver meals designed specifically for your biology
               and goals.

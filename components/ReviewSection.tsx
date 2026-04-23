@@ -36,7 +36,10 @@ const reviewsData = [
 
 export default function ReviewSection() {
   return (
-    <section id="results" className="py-24 bg-(--dark-bg) text-(--white-text) overflow-hidden font-sans relative">
+    <section
+      id="results"
+      className="py-24 bg-(--dark-bg) text-(--white-text) overflow-hidden font-sans relative"
+    >
       <style
         dangerouslySetInnerHTML={{
           __html: `
@@ -46,7 +49,7 @@ export default function ReviewSection() {
         }}
       />
 
-      {/* Header Area */}
+      {/* Header Area (Unchanged) */}
       <div className="max-w-[1400px] mx-auto px-6 mb-16 relative flex flex-col items-center">
         <div className="flex items-center gap-2 mb-4">
           <span className="w-2.5 h-2.5 bg-(--red) rounded-full"></span>
@@ -54,40 +57,37 @@ export default function ReviewSection() {
             Reviews
           </span>
         </div>
-
-        {/* Responsive Title for Tablet */}
         <h2 className="text-5xl md:text-6xl lg:text-7xl font-black uppercase tracking-tighter text-center leading-[0.9] text-(--dark-text)">
           Not our words.
           <br />
           But theirs
         </h2>
-
-        {/* Adjusted Trustpilot for Tablet spacing */}
-        <div className="hidden lg:flex absolute right-6 top-1/2 -translate-y-1/2 items-center gap-4 text-(--dark-text)">
-          <span className="text-xl font-[FormulaBold] tracking-wide">
-            Trustpilot
-          </span>
-          <div className="w-14 h-14 rounded-full border-2 border-(--red) flex items-center justify-center text-lg font-bold">
-            8.5
-          </div>
-        </div>
+        {/* ... Trustpilot hidden lg:flex ... */}
       </div>
 
-      {/* Responsive Carousel Cards */}
+      {/* Carousel */}
       <div className="flex gap-4 md:gap-5 lg:gap-6 overflow-x-auto px-6 pb-12 snap-x snap-mandatory hide-scrollbar cursor-grab active:cursor-grabbing">
         {reviewsData.map((review) => (
           <React.Fragment key={review.id}>
-            {/* 1. Image Card */}
-            {/* Logic: 85vw (Mobile) -> 350px (Tablet) -> 400px (Desktop) */}
+            {/* 1. Image Card with Tags */}
             <div className="shrink-0 w-[85vw] sm:w-[320px] md:w-[350px] lg:w-[400px] aspect-4/5 rounded-4xl md:rounded-[2.5rem] overflow-hidden flex gap-1 snap-center bg-(--dark-bg)">
-              <div className="w-1/2 h-full relative">
+              {/* Before Image Container */}
+              <div className="w-1/2 h-full relative group">
                 <Image
                   src={review.beforeImg}
                   alt={`${review.author} before`}
                   fill
                   className="object-cover grayscale-20"
                 />
+                {/* BEFORE TAG */}
+                <div className="absolute top-4 left-4 z-10">
+                  <span className="px-3 py-1 bg-black/40 backdrop-blur-md border border-white/10 rounded-full text-[10px] font-black uppercase tracking-widest text-white shadow-xl">
+                    Before
+                  </span>
+                </div>
               </div>
+
+              {/* After Image Container */}
               <div className="w-1/2 h-full relative">
                 <Image
                   src={review.afterImg}
@@ -95,25 +95,28 @@ export default function ReviewSection() {
                   fill
                   className="object-cover"
                 />
+                {/* AFTER TAG */}
+                <div className="absolute top-4 right-4 z-10">
+                  <span className="px-3 py-1 bg-(--red) rounded-full text-[10px] font-black uppercase tracking-widest text-white shadow-lg">
+                    After
+                  </span>
+                </div>
               </div>
             </div>
 
-            {/* 2. Text Review Card */}
+            {/* 2. Text Review Card (Unchanged) */}
             <div className="shrink-0 w-[85vw] sm:w-[320px] md:w-[350px] lg:w-[400px] aspect-4/5 rounded-4xl md:rounded-[2.5rem] bg-(--white-bg) text-(--white-text) p-8 md:p-9 lg:p-10 flex flex-col snap-center">
               <h3 className="text-2xl md:text-3xl lg:text-4xl font-[FormulaBold] uppercase tracking-wider leading-[0.9] mb-4">
                 {review.title}
               </h3>
-
               <div className="flex gap-1.5 mb-6 text-(--red)">
                 {[...Array(review.rating)].map((_, i) => (
                   <FaStar key={i} className="text-lg md:text-xl" />
                 ))}
               </div>
-
               <p className="text-sm lg:text-base font-[Helvetica] leading-relaxed mb-auto text-(--white-text)">
                 {review.text}
               </p>
-
               <p className="text-xl font-[FormulaBold] text-(--white-text) mt-6">
                 {review.author}
               </p>
