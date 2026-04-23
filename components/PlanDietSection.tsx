@@ -131,7 +131,7 @@ export default function PlanDietSection() {
           className="relative aspect-square rounded-[3rem] overflow-hidden shadow-2xl"
         >
           <Image
-            src="/Img/diet_img1.webp"
+            src="/Img/diet_Img1.webp"
             alt="Healthy Delivery"
             fill
             className="object-cover"
