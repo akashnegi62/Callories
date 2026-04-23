@@ -34,17 +34,17 @@ const whyData = [
 
 export default function WhyWorksSection() {
   return (
-    <section className="py-24 bg-[#0a0a0a] text-white px-6 font-sans overflow-hidden">
+    <section className="py-24 bg-(--dark-bg) px-6 font-sans overflow-hidden">
       <div className="max-w-7xl mx-auto">
         {/* --- Header Section --- */}
         <div className="mb-20 text-center md:text-left">
           <div className="flex items-center gap-3 mb-4 justify-center md:justify-start">
-            <span className="w-12 h-[2px] bg-[#FF5A22]"></span>
-            <span className="text-xs font-black uppercase tracking-[0.3em] text-[#FF5A22]">
+            <span className="w-12 h-[2px] bg-(--red)"></span>
+            <span className="text-xs font-black uppercase tracking-[0.3em] text-(--red)">
               The Methodology
             </span>
           </div>
-          <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter leading-[0.85] text-zinc-100">
+          <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter leading-[0.85] text-(--dark-text)">
             Why Callories <br className="hidden md:block" />
             <span className="text-zinc-500">Actually Works</span>
           </h2>
@@ -59,25 +59,25 @@ export default function WhyWorksSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className="group p-8 rounded-4xl bg-zinc-900/50 border border-zinc-800 hover:border-[#FF5A22]/50 transition-all duration-500 flex flex-col h-full"
+              className="group p-8 rounded-4xl bg-zinc-900/50 border border-zinc-800 hover:border-(--red)/50 transition-all duration-500 flex flex-col h-full"
             >
               {/* Icon Container */}
-              <div className="w-14 h-14 rounded-2xl bg-zinc-800 flex items-center justify-center text-2xl text-[#FF5A22] mb-8 group-hover:scale-110 group-hover:bg-[#FF5A22] group-hover:text-white transition-all duration-500">
+              <div className="w-14 h-14 rounded-2xl bg-zinc-800 flex items-center justify-center text-2xl text-(--red) mb-8 group-hover:scale-110 group-hover:bg-(--red) group-hover:text-white transition-all duration-500">
                 {item.icon}
               </div>
 
               {/* Text Content */}
-              <h3 className="text-2xl font-black uppercase tracking-tight mb-4 leading-none">
+              <h3 className="text-2xl text-(--dark-text) font-[FormulaBold] uppercase tracking-wider mb-4 leading-none">
                 {item.title}
               </h3>
 
-              <p className="text-zinc-400 text-sm md:text-base leading-relaxed">
+              <p className="text-(--dark-text) font-[Helvetica] text-sm md:text-base leading-relaxed">
                 {item.desc}
               </p>
 
               {/* Bottom Decorative Line */}
               <div className="mt-auto pt-8">
-                <div className="w-0 group-hover:w-full h-px bg-[#FF5A22] transition-all duration-700"></div>
+                <div className="w-0 group-hover:w-full h-px bg-(--red) transition-all duration-700"></div>
               </div>
             </motion.div>
           ))}

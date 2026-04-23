@@ -17,15 +17,15 @@ const problems = [
     darkText: "You start strong…",
     lightText: "then lose motivation",
     video: "/hero-video.mp4",
-    bgImage: "/assets/wireframe-1.png",
+    bgImage: "/Img/wireframe1.png",
   },
   {
     id: 2,
     eyebrow: "ROUTINE",
     darkText: "Workouts feel",
     lightText: "boring and repetitive",
-    video: "/hero-video1.mp4",
-    bgImage: "/assets/wireframe-2.png",
+    video: "/hero-video.mp4",
+    bgImage: "/Img/wireframe1.png",
   },
   {
     id: 3,
@@ -33,15 +33,15 @@ const problems = [
     darkText: "Diets are too",
     lightText: "strict to follow",
     video: "/hero-video.mp4",
-    bgImage: "/assets/wireframe-3.png",
+    bgImage: "/Img/wireframe1.png",
   },
   {
     id: 4,
     eyebrow: "SUPPORT",
     darkText: "No one keeps you",
     lightText: "accountable",
-    video: "/hero-video2.mp4",
-    bgImage: "/assets/wireframe-4.png",
+    video: "/hero-video.mp4",
+    bgImage: "/Img/wireframe1.png",
   },
   {
     id: 5,
@@ -49,7 +49,7 @@ const problems = [
     darkText: "No results —",
     lightText: "so you give up",
     video: "/hero-video.mp4",
-    bgImage: "/assets/wireframe-5.png",
+    bgImage: "/Img/wireframe1.png",
   },
 ];
 
@@ -78,22 +78,13 @@ export default function ProblemSection() {
     // Increased height to 700vh for smoother, longer scroll transitions
     <section
       ref={containerRef}
-      className="relative bg-[#E6E6E6] text-zinc-950 min-h-[700vh] font-sans pb-30 md:pb-50 lg:pb-80"
+      className="relative bg-(--white-bg) min-h-[700vh] font-sans pb-30 md:pb-50 lg:pb-80"
     >
-      {/* Texture overlay (Optional) */}
-      <div
-        className="absolute inset-0 opacity-[0.03] pointer-events-none"
-        style={{
-          backgroundImage:
-            'url("https://www.transparenttextures.com/patterns/stardust.png")',
-        }}
-      ></div>
-
       {/* Sticky Container */}
       <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-between px-4 py-12 md:py-16">
         {/* Upper Heading */}
         <div className="w-full text-center px-4 shrink-0 z-20">
-          <h2 className="text-4xl md:text-6xl lg:text-[5.5rem] font-black uppercase tracking-tighter text-zinc-950 leading-[0.85] max-w-5xl mx-auto drop-shadow-sm">
+          <h2 className="text-4xl md:text-6xl lg:text-[5.5rem] font-black uppercase tracking-tighter text-(--white-text) leading-[0.85] max-w-5xl mx-auto drop-shadow-sm">
             Why Most People
             <br />
             Fail at Fitness
@@ -143,8 +134,10 @@ export default function ProblemSection() {
                 </span>
 
                 {/* Large Elegant Two-Tone Text */}
-                <h3 className="text-3xl md:text-[2.5rem] font-serif leading-[1.1] tracking-tight z-10">
-                  <span className="text-zinc-900">{activeData.darkText}</span>
+                <h3 className="text-3xl md:text-[2.5rem] font-[Helvetica] leading-[1.1] tracking-tight z-10">
+                  <span className="text-(--white-text)">
+                    {activeData.darkText}
+                  </span>
                   <br />
                   <span className="text-zinc-400">{activeData.lightText}</span>
                 </h3>
@@ -166,7 +159,7 @@ export default function ProblemSection() {
 
         {/* Bottom Line */}
         <div className="w-full text-center px-4 shrink-0 mt-8">
-          <h1 className="text-2xl md:text-4xl lg:text-5xl font-medium text-zinc-800 max-w-5xl mx-auto leading-tight tracking-tight">
+          <h1 className="text-2xl md:text-4xl lg:text-5xl font-[Helvetica] text-zinc-800 max-w-5xl mx-auto leading-tight tracking-tight">
             “So you quit. That’s exactly where Callories changes the game.”
           </h1>
         </div>

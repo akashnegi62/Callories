@@ -18,7 +18,7 @@ export default function Hero() {
   });
 
   /* ───────── BACKGROUND ───────── */
-  const bgColor = useTransform(smooth, [0, 1], ["#000000", "#e6e6e6"]);
+  const bgColor = useTransform(smooth, [0, 1], ["#041513", "#dededa"]);
   /* ───────── VIDEO ───────── */
   const videoWidth = useTransform(smooth, [0, 0.8], ["46%", "100%"]);
   const videoHeight = useTransform(smooth, [0, 0.8], ["60%", "100%"]);

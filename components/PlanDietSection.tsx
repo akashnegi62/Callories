@@ -58,7 +58,7 @@ const howItWorks = [
 export default function PlanDietSection() {
   const timelineRef = useRef<HTMLDivElement>(null);
 
-  // -- Train Line Animation Logic --
+  // -- Scroll logic for the "Train" line animation --
   const { scrollYProgress } = useScroll({
     target: timelineRef,
     offset: ["start 40%", "end 60%"],
@@ -73,8 +73,8 @@ export default function PlanDietSection() {
   const lineHeight = useTransform(smoothProgress, [0, 1], ["0%", "100%"]);
 
   return (
-    <section className="bg-white font-sans overflow-hidden">
-      {/* --- HERO SECTION --- */}
+    <section className="bg-(--white-bg) font-sans overflow-hidden">
+      {/* --- DIET SECTION --- */}
       <div className="py-24 px-6 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         <motion.div
           initial={{ opacity: 0, x: -30 }}
@@ -83,14 +83,14 @@ export default function PlanDietSection() {
           className="space-y-8"
         >
           <div className="space-y-4">
-            <h2 className="text-4xl md:text-7xl font-black uppercase tracking-tighter leading-[0.85] text-black">
+            <h2 className="text-4xl md:text-7xl font-black uppercase tracking-tighter text-(--white-text)">
               We Don’t Just Plan Your Diet. <br />
-              <span className="text-[#FF5A22]">We Deliver It</span>
+              <span className="text-(--red)">We Deliver It</span>
             </h2>
-            <p className="text-xl font-bold text-zinc-900 uppercase tracking-tight">
+            <p className="text-2xl font-[FormulaBold] text-(--white-text) uppercase tracking-wider">
               Too Busy and Struggling to Follow Your Diet? We’ll Handle It.
             </p>
-            <p className="text-zinc-500 max-w-lg leading-relaxed">
+            <p className="text-(--white-text) font-[Helvetica] max-w-lg leading-relaxed">
               With Callories, you don’t have to think about what to eat — we
               prepare and deliver meals designed specifically for your biology
               and goals.
@@ -103,10 +103,10 @@ export default function PlanDietSection() {
                 key={i}
                 className="flex items-center gap-4 group cursor-default"
               >
-                <div className="w-10 h-10 rounded-full bg-zinc-100 flex items-center justify-center text-[#FF5A22] group-hover:bg-[#FF5A22] group-hover:text-white transition-colors duration-300 shrink-0">
+                <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center group-hover:bg-(--red) group-hover:text-white transition-colors duration-300 shrink-0">
                   {item.icon}
                 </div>
-                <span className="text-sm font-bold text-zinc-800 uppercase leading-tight">
+                <span className="text-sm font-[Helvetica] text-(--white-text) uppercase leading-tight">
                   {item.text}
                 </span>
               </div>
@@ -117,7 +117,7 @@ export default function PlanDietSection() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-[#FF5A22] text-white font-black uppercase tracking-widest px-10 py-5 rounded-full shadow-xl"
+              className="bg-(--red) text-(--dark-text) font-black uppercase tracking-widest px-10 py-5 rounded-full shadow-xl"
             >
               Join Meal Program
             </motion.button>
@@ -131,14 +131,14 @@ export default function PlanDietSection() {
           className="relative aspect-square rounded-[3rem] overflow-hidden shadow-2xl"
         >
           <Image
-            src="/img/diet_img1.webp"
+            src="/Img/diet_img1.webp"
             alt="Healthy Delivery"
             fill
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-black/10" />
-          <div className="absolute bottom-8 left-8 right-8 bg-white/90 backdrop-blur-md p-6 rounded-2xl border border-white/20">
-            <p className="text-zinc-900 font-bold uppercase italic text-sm md:text-base">
+          <div className="absolute inset-0 bg-black/5" />
+          <div className="absolute bottom-8 left-8 right-8 bg-(--white-bg) backdrop-blur-md p-6 rounded-2xl border border-zinc-100 shadow-lg">
+            <p className="text-(--white-text) font-[Helvetica] uppercase italic text-sm md:text-base">
               &quot;This is the easiest way to stay on track — without relying
               on willpower.&quot;
             </p>
@@ -146,58 +146,58 @@ export default function PlanDietSection() {
         </motion.div>
       </div>
 
-      {/* --- HOW IT WORKS: ZIG-ZAG SNAKE --- */}
-      <div className="bg-black py-32 px-6">
+      {/* --- HOW IT WORKS --- */}
+      <div className="bg-(--white-bg) py-32 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-32">
             <motion.span
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
-              className="text-[#FF5A22] text-xs font-black uppercase tracking-[0.4em] mb-4 block"
+              className="text-(--red) text-xs font-[Helvetica] uppercase tracking-[0.4em] mb-4 block"
             >
               The Process
             </motion.span>
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              className="text-5xl md:text-7xl font-black uppercase tracking-tighter text-white"
+              className="text-5xl md:text-7xl font-black uppercase tracking-tighter text-(--white-text)"
             >
               How It Works
             </motion.h2>
           </div>
 
           <div ref={timelineRef} className="relative">
-            {/* --- Static Track Line --- */}
-            <div className="absolute top-0 bottom-0 left-[39px] lg:left-1/2 w-[2px] bg-zinc-800 lg:-translate-x-1/2" />
+            {/* --- Static Track Line (Lighter for White Theme) --- */}
+            <div className="absolute top-0 bottom-0 left-[39px] lg:left-1/2 w-[2px] bg-(--dark-bg) lg:-translate-x-1/2" />
 
             {/* --- Animated Train Line --- */}
             <motion.div
               style={{ height: lineHeight }}
-              className="absolute top-0 left-[39px] lg:left-1/2 w-[2px] bg-[#FF5A22] origin-top z-10 lg:-translate-x-1/2"
+              className="absolute top-0 left-[39px] lg:left-1/2 w-[2px] bg-(--red) origin-top z-10 lg:-translate-x-1/2"
             />
 
             <div className="space-y-24 lg:space-y-0">
               {howItWorks.map((item, idx) => {
-                // Parity Logic: 0 & 2 = Left | 1 & 3 = Right
+                // Parity Logic: 1 & 3 = Right (Personalize & Transform)
                 const isRight = idx % 2 !== 0;
 
                 return (
                   <motion.div
                     key={idx}
-                    initial={{ opacity: 0, x: isRight ? 50 : -50 }}
+                    initial={{ opacity: 0, x: isRight ? 40 : -40 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, amount: 0.6 }}
                     transition={{ duration: 0.7, ease: "easeOut" }}
-                    className={`relative flex items-start w-full lg:h-[280px]
+                    className={`relative flex items-start w-full lg:h-[300px] group
                       ${isRight ? "lg:flex-row" : "lg:flex-row-reverse"}
                     `}
                   >
                     {/* Circle (Station) */}
                     <div className="shrink-0 relative z-20 mt-1 lg:mt-0 lg:absolute lg:left-1/2 lg:-translate-x-1/2">
-                      <div className="w-20 h-20 rounded-full bg-zinc-950 border-4 border-zinc-800 flex items-center justify-center text-2xl font-black text-white group-hover:border-[#FF5A22] shadow-2xl">
+                      <div className="w-20 h-20 rounded-full bg-(--white-bg) border-4 border-(--white-bg) flex items-center justify-center text-2xl font-black text-(--white-text) group-hover:border-(--red) group-hover:text-(--red) shadow-xl transition-all duration-500">
                         {idx + 1}
                       </div>
-                      <div className="absolute inset-0 rounded-full bg-[#FF5A22]/20 blur-xl animate-pulse" />
+                      <div className="absolute inset-0 rounded-full bg-(--red)/10 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     </div>
 
                     {/* Content (Zig-Zag) */}
@@ -206,28 +206,28 @@ export default function PlanDietSection() {
                       ${isRight ? "lg:pl-20 text-left items-start" : "lg:pr-20 text-right items-end"}
                     `}
                     >
-                      <h3 className="text-2xl md:text-3xl font-black uppercase tracking-tight text-white mt-4 lg:mt-0">
+                      <h3 className="text-2xl md:text-5xl font-[FormulaBold] uppercase tracking-wider text-(--white-text) mt-4 lg:mt-0 transition-colors group-hover:text-(--red)">
                         {item.title}
                       </h3>
-                      <p className="text-zinc-500 text-sm md:text-base leading-relaxed max-w-[300px]">
+                      <p className="text-(--white-text) font-[Helvetica] text-sm md:text-lg leading-relaxed max-w-[320px]">
                         {item.desc}
                       </p>
 
-                      {/* Interactive Pill Tag */}
+                      {/* Pill Tag (Updated for White Theme) */}
                       <motion.div
                         whileHover={{ scale: 1.05 }}
-                        className="mt-4 flex items-center gap-3 px-5 py-3 rounded-full bg-zinc-900/50 border border-zinc-800 cursor-default"
+                        className="mt-6 flex items-center gap-3 px-6 py-3 rounded-full bg-(--white-bg) border border-(--white-bg) shadow-sm hover:border-(--red)/40 transition-all cursor-default"
                       >
-                        <span className="text-[#FF5A22] text-lg shrink-0">
+                        <span className="text-(--red) text-xl shrink-0">
                           {item.icon}
                         </span>
-                        <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-300">
+                        <span className="text-[10px] font-bold uppercase tracking-widest text-(--white-text)">
                           {item.pillText}
                         </span>
                       </motion.div>
                     </div>
 
-                    {/* Empty Space for Zig-Zag */}
+                    {/* Spacer for Zig-Zag */}
                     <div className="hidden lg:block lg:w-1/2" />
                   </motion.div>
                 );

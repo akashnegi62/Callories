@@ -15,7 +15,7 @@ const textReveal: Variants = {
 
 export default function TrialSection() {
   return (
-    <section className="bg-[#0a0b0b] text-white py-32 pb-48 px-6 md:px-12 font-sans overflow-hidden">
+    <section className="bg-(--white-bg) text-(--white-text) py-32 pb-48 px-6 md:px-12 font-sans overflow-hidden">
       <div className="max-w-7xl mx-auto">
         {/* --- Main Heading --- */}
         <div className="mb-32">
@@ -27,7 +27,7 @@ export default function TrialSection() {
           >
             DITCH MOTIVATION.
             <br />
-            GET THE <span className="text-[#e6000b]">RIGHT SYSTEM.</span>
+            GET THE <span className="text-(--red) font-[FormulaBold] tracking-wider">RIGHT <br /> SYSTEM.</span>
           </motion.h2>
         </div>
 
@@ -41,7 +41,7 @@ export default function TrialSection() {
               className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-in-out"
             />
           </div>
-          <motion.div className="w-72 h-72 md:w-55 md:h-55 lg:w-100 lg:h-100 2xl:w-108 2xl:h-108 bg-[#1a1a1a]">
+          <motion.div className="w-72 h-72 md:w-55 md:h-55 lg:w-100 lg:h-100 2xl:w-108 2xl:h-108 bg-(--dark-bg)">
             <motion.div
               initial="hidden"
               whileInView="visible"
@@ -50,7 +50,7 @@ export default function TrialSection() {
             >
               <motion.span
                 variants={textReveal}
-                className="text-sm md:text-base font-bold uppercase tracking-[0.2em] leading-tight"
+                className="text-sm md:text-lg text-(--dark-text) font-[FormulaBold] uppercase tracking-[0.5em] leading-tight"
               >
                 UNPARALLELED <br /> PERSONAL TRAINING
               </motion.span>
@@ -68,7 +68,7 @@ export default function TrialSection() {
               className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-in-out"
             />
           </div>
-          <motion.div className="w-72 h-72 md:w-55 md:h-55 lg:w-100 lg:h-100 2xl:w-108 2xl:h-108 bg-[#1a1a1a]">
+          <motion.div className="w-72 h-72 md:w-55 md:h-55 lg:w-100 lg:h-100 2xl:w-108 2xl:h-108 bg-(--dark-bg)">
             <motion.div
               initial="hidden"
               whileInView="visible"
@@ -77,7 +77,7 @@ export default function TrialSection() {
             >
               <motion.span
                 variants={textReveal}
-                className="text-sm md:text-base font-bold uppercase tracking-[0.2em] leading-tight"
+                className="text-sm md:text-base text-(--dark-text) font-[FormulaBold] uppercase tracking-[0.5em] leading-tight"
               >
                 UNPARALLELED <br /> PERSONAL TRAINING
               </motion.span>
@@ -87,7 +87,7 @@ export default function TrialSection() {
 
         {/* --- Benefit 3: Gray Circle Left, Wide Image Right + CTA --- */}
         <div className="flex flex-col md:flex-row items-end gap-0 relative mb-20">
-          <motion.div className="w-72 h-72 md:w-60 md:h-60 lg:w-132 lg:h-108 2xl:w-150 2xl:h-114 bg-[#1a1a1a]">
+          <motion.div className="w-72 h-72 md:w-60 md:h-60 lg:w-132 lg:h-108 2xl:w-150 2xl:h-114 bg-(--dark-bg)">
             <motion.div
               initial="hidden"
               whileInView="visible"
@@ -96,7 +96,7 @@ export default function TrialSection() {
             >
               <motion.span
                 variants={textReveal}
-                className="text-sm md:text-base font-bold uppercase tracking-[0.2em] leading-tight"
+                className="text-sm md:text-base text-(--dark-text) font-[FormulaBold] uppercase tracking-[0.5em] leading-tight"
               >
                 UNPARALLELED <br /> PERSONAL TRAINING
               </motion.span>
@@ -118,9 +118,9 @@ export default function TrialSection() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="w-32 h-32  md:w-30 md:h-30 lg:w-40 lg:h-40 2xl:w-40 2xl:h-40 bg-zinc-800 border border-zinc-700 rounded-full flex items-center justify-center text-center p-4 shadow-xl group"
+              className="w-32 h-32  md:w-30 md:h-30 lg:w-40 lg:h-40 2xl:w-40 2xl:h-40 bg-(--dark-bg) rounded-full flex items-center justify-center text-center p-4 shadow-xl group"
             >
-              <span className="text-[10px] md:text-xs font-black uppercase tracking-widest leading-tight group-hover:text-zinc-200 transition-colors">
+              <span className="text-[10px] md:text-xs font-black uppercase tracking-widest leading-tight text-(--white-bg) group-hover:text-(--red) transition-colors">
                 Talk to <br /> coach
               </span>
             </motion.button>
@@ -129,9 +129,9 @@ export default function TrialSection() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="w-44 h-44 md:w-40 md:h-40 lg:w-56 lg:h-56 2xl:w-56 2xl:h-56 bg-[#e6000b] rounded-full flex items-center justify-center text-center p-6 shadow-[0_20px_50px_rgba(230,0,11,0.3)]"
+              className="w-44 h-44 md:w-40 md:h-40 lg:w-56 lg:h-56 2xl:w-56 2xl:h-56 bg-(--red) rounded-full flex items-center justify-center text-center p-6 shadow-[0_20px_50px_rgba(230,0,11,0.3)]"
             >
-              <span className="text-sm md:text-lg font-black uppercase leading-tight tracking-tight">
+              <span className="text-sm md:text-lg text-(--dark-text) font-black uppercase leading-tight tracking-tight">
                 Start free <br /> trial [+]
               </span>
             </motion.button>
@@ -140,7 +140,7 @@ export default function TrialSection() {
 
         {/* --- Footer Tagline --- */}
         <div className="mt-48 pb-5 border-b border-zinc-900">
-          <p className="text-zinc-600 hover:text-[#e6000b] transition-colors duration-300 text-[12px] font-bold uppercase tracking-[0.4em] text-center md:text-left">
+          <p className="text-zinc-600 hover:text-(--red) transition-colors duration-300 text-[12px] font-bold uppercase tracking-[0.4em] text-center md:text-left">
             Limited slots per batch to maintain quality
           </p>
         </div>

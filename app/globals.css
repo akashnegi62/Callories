@@ -11,6 +11,22 @@
 }
 
 @font-face {
-  font-family: "HelveticaNeueRoman";
+  font-family: "Helvetica";
   src: url(../public/font/HelveticaNeueRoman.woff2);
+}
+
+:root {
+  /* Light Theme */
+  --white-bg: #dededa;
+  --white-text: #041414;
+
+  /* Dark Theme */
+  --dark-bg: #041513;
+  --dark-text: #e1e0e0;
+
+  /* Accent */
+  --red: #e73139;
+
+  /* Glassmorphism */
+  --glass-bg: #0b1618/40;
 }

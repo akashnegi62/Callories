@@ -36,7 +36,7 @@ const reviewsData = [
 
 export default function ReviewSection() {
   return (
-    <section className="py-24 bg-[#0a0a0a] text-white overflow-hidden font-sans relative">
+    <section className="py-24 bg-(--dark-bg) text-(--white-text) overflow-hidden font-sans relative">
       <style
         dangerouslySetInnerHTML={{
           __html: `
@@ -49,23 +49,25 @@ export default function ReviewSection() {
       {/* Header Area */}
       <div className="max-w-[1400px] mx-auto px-6 mb-16 relative flex flex-col items-center">
         <div className="flex items-center gap-2 mb-4">
-          <span className="w-2.5 h-2.5 bg-red-600 rounded-full"></span>
-          <span className="text-xs font-bold uppercase tracking-widest text-zinc-300">
+          <span className="w-2.5 h-2.5 bg-(--red) rounded-full"></span>
+          <span className="text-xs font-[Helvetica] uppercase tracking-widest text-(--dark-text)">
             Reviews
           </span>
         </div>
 
         {/* Responsive Title for Tablet */}
-        <h2 className="text-5xl md:text-6xl lg:text-7xl font-black uppercase tracking-tighter text-center leading-[0.9] text-zinc-100">
+        <h2 className="text-5xl md:text-6xl lg:text-7xl font-black uppercase tracking-tighter text-center leading-[0.9] text-(--dark-text)">
           Not our words.
           <br />
           But theirs
         </h2>
 
         {/* Adjusted Trustpilot for Tablet spacing */}
-        <div className="hidden lg:flex absolute right-6 top-1/2 -translate-y-1/2 items-center gap-4">
-          <span className="text-sm font-bold tracking-wide">Trustpilot</span>
-          <div className="w-14 h-14 rounded-full border-2 border-red-600 flex items-center justify-center text-lg font-bold">
+        <div className="hidden lg:flex absolute right-6 top-1/2 -translate-y-1/2 items-center gap-4 text-(--dark-text)">
+          <span className="text-xl font-[FormulaBold] tracking-wide">
+            Trustpilot
+          </span>
+          <div className="w-14 h-14 rounded-full border-2 border-(--red) flex items-center justify-center text-lg font-bold">
             8.5
           </div>
         </div>
@@ -77,7 +79,7 @@ export default function ReviewSection() {
           <React.Fragment key={review.id}>
             {/* 1. Image Card */}
             {/* Logic: 85vw (Mobile) -> 350px (Tablet) -> 400px (Desktop) */}
-            <div className="shrink-0 w-[85vw] sm:w-[320px] md:w-[350px] lg:w-[400px] aspect-4/5 rounded-4xl md:rounded-[2.5rem] overflow-hidden flex gap-1 snap-center bg-[#0a0a0a]">
+            <div className="shrink-0 w-[85vw] sm:w-[320px] md:w-[350px] lg:w-[400px] aspect-4/5 rounded-4xl md:rounded-[2.5rem] overflow-hidden flex gap-1 snap-center bg-(--dark-bg)">
               <div className="w-1/2 h-full relative">
                 <Image
                   src={review.beforeImg}
@@ -97,22 +99,22 @@ export default function ReviewSection() {
             </div>
 
             {/* 2. Text Review Card */}
-            <div className="shrink-0 w-[85vw] sm:w-[320px] md:w-[350px] lg:w-[400px] aspect-4/5 rounded-4xl md:rounded-[2.5rem] bg-[#EAEAEA] text-zinc-950 p-8 md:p-9 lg:p-10 flex flex-col snap-center">
-              <h3 className="text-2xl md:text-3xl lg:text-4xl font-black uppercase tracking-tighter leading-[0.9] mb-4">
+            <div className="shrink-0 w-[85vw] sm:w-[320px] md:w-[350px] lg:w-[400px] aspect-4/5 rounded-4xl md:rounded-[2.5rem] bg-(--white-bg) text-(--white-text) p-8 md:p-9 lg:p-10 flex flex-col snap-center">
+              <h3 className="text-2xl md:text-3xl lg:text-4xl font-[FormulaBold] uppercase tracking-wider leading-[0.9] mb-4">
                 {review.title}
               </h3>
 
-              <div className="flex gap-1.5 mb-6 text-red-600">
+              <div className="flex gap-1.5 mb-6 text-(--red)">
                 {[...Array(review.rating)].map((_, i) => (
                   <FaStar key={i} className="text-lg md:text-xl" />
                 ))}
               </div>
 
-              <p className="text-sm lg:text-base font-medium leading-relaxed text-zinc-800 mb-auto">
+              <p className="text-sm lg:text-base font-[Helvetica] leading-relaxed mb-auto text-(--white-text)">
                 {review.text}
               </p>
 
-              <p className="text-sm font-bold text-zinc-950 mt-6">
+              <p className="text-xl font-[FormulaBold] text-(--white-text) mt-6">
                 {review.author}
               </p>
             </div>

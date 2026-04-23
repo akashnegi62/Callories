@@ -10,7 +10,7 @@ const solutions = [
     title: "Real Guidance, No Empty Promises",
     description:
       "At Callories, we look beyond standard plans or quick fixes. Your personal coach is by your side 24/7 and helps you with a nutrition and training plan that is truly tailored to your goals, body, and lifestyle.",
-    imageUrl:"/img/offer_img1.webp",
+    imageUrl: "/img/offer_img1.webp",
     imageTag: "1-on-1 coaching",
   },
   {
@@ -18,7 +18,7 @@ const solutions = [
     title: "Movement should feel like play",
     description:
       "Forget the treadmill grind. We integrate badminton, football, and functional games to ensure you're burning calories while having genuine fun. Consistency comes naturally when you actually look forward to your sessions.",
-    imageUrl:"/img/offer_img2.webp",
+    imageUrl: "/img/offer_img2.webp",
     imageTag: "Active Play",
   },
   {
@@ -26,7 +26,7 @@ const solutions = [
     title: "Push your limits with intent",
     description:
       "Our training philosophy is built on science and expert coaching. We provide the structure you need to see visible strength gains and aesthetic results without wasting time on ineffective routines.",
-    imageUrl:"/img/offer_img3.webp",
+    imageUrl: "/img/offer_img3.webp",
     imageTag: "Pro Training",
   },
   {
@@ -34,14 +34,14 @@ const solutions = [
     title: "Sustain your progress for life",
     description:
       "We don't just help you get in shape—we help you stay in shape. With ongoing support, accountability, and a community that keeps you motivated, you'll maintain your results and keep progressing long after you hit your initial goals.",
-    imageUrl:"/img/offer_img4.webp",
+    imageUrl: "/img/offer_img4.webp",
     imageTag: "Lifelong Support",
   },
 ];
 
 export default function SolutionSection() {
   return (
-    <section className="py-32 bg-[#0a0a0a] text-white px-6 font-sans overflow-hidden">
+    <section className="py-32 bg-(--dark-bg) text-(--dark-text) px-6 font-sans overflow-hidden">
       <div className="max-w-7xl mx-auto w-full">
         <div className="space-y-40">
           {solutions.map((item, index) => {
@@ -62,19 +62,19 @@ export default function SolutionSection() {
                 >
                   {/* Eyebrow Tag with Red Dot */}
                   <div className="flex items-center gap-2">
-                    <span className="w-2 h-2 bg-red-600 rounded-full animate-pulse" />
-                    <span className="text-xs font-bold uppercase tracking-widest text-zinc-300">
+                    <span className="w-2 h-2 bg-(--red) rounded-full animate-pulse" />
+                    <span className="text-xs font-[Helvetica] uppercase tracking-widest">
                       {item.eyebrow}
                     </span>
                   </div>
 
                   {/* High-Impact Condensed Title */}
-                  <h3 className="text-5xl md:text-7xl font-black uppercase tracking-tighter leading-[0.9] max-w-md">
+                  <h3 className="text-5xl md:text-7xl font-[FormulaBold] uppercase tracking-wide leading-[0.9] max-w-md">
                     {item.title}
                   </h3>
 
                   {/* Paragraph Description */}
-                  <p className="text-zinc-400 text-lg leading-relaxed max-w-lg font-medium">
+                  <p className="text-lg leading-relaxed max-w-lg font-[Helvetica]">
                     {item.description}
                   </p>
                 </motion.div>
@@ -97,7 +97,7 @@ export default function SolutionSection() {
 
                     {/* Top Pill Tag */}
                     <div className="absolute top-6 left-6">
-                      <div className="px-5 py-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-xs font-bold uppercase tracking-wider text-white">
+                      <div className="px-5 py-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-xs font-bold uppercase tracking-wider">
                         {item.imageTag}
                       </div>
                     </div>
@@ -114,7 +114,7 @@ export default function SolutionSection() {
                           cx="40"
                           cy="60"
                           r="25"
-                          stroke="#ef4444"
+                          stroke="#e73139"
                           strokeWidth="2"
                           fill="none"
                         />
@@ -122,7 +122,7 @@ export default function SolutionSection() {
                           cx="60"
                           cy="40"
                           r="25"
-                          stroke="#ef4444"
+                          stroke="#e73139"
                           strokeWidth="2"
                           fill="none"
                         />

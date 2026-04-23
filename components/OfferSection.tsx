@@ -112,14 +112,14 @@ export default function OfferSection() {
   return (
     <section
       ref={containerRef}
-      className="relative h-[700vh] bg-[#E4E2DC] pb-20 md:pb-0 lg:pb-40 2xl:pb-0"
+      className="relative h-[700vh] bg-(--dark-bg) pb-20 md:pb-0 lg:pb-40 2xl:pb-0"
     >
       {/* Heading */}
       <div className="absolute top-0 w-full flex flex-col items-center pt-40 px-6 text-center z-50 pointer-events-none">
-        <h1 className="font-black uppercase text-[#111] leading-[0.9] tracking-tight text-5xl md:text-7xl">
+        <h1 className="font-black uppercase text-(--dark-text) leading-[0.9] tracking-tight text-5xl md:text-7xl">
           Move. Play. Enjoy.
         </h1>
-        <p className="mt-5 text-xl text-zinc-500 font-normal leading-relaxed">
+        <p className="mt-5 text-xl text-(--dark-text) font-[Helvetica] leading-relaxed">
           A weight-neutral program that builds sustainable habits, not quick
           fixes.
         </p>
@@ -166,13 +166,13 @@ export default function OfferSection() {
               src={gridImages[0]}
               alt="Hero"
               fill
-              className="object-cover"
+              className="object-cover object-top"
               priority
               sizes="(max-width: 768px) 30vw, 260px"
             />
 
             <motion.div className="absolute inset-0 flex items-center justify-center p-3">
-              <h2 className="text-white font-black uppercase text-center leading-[0.88] text-[clamp(1rem,2.2vw,3rem)] md:text-[clamp(2rem,2.5vw,3.5rem)] lg:text-[clamp(2.5rem,3vw,4rem)] 2xl:text-[clamp(1.8rem,2vw,4rem)] tracking-[-0.02em]">
+              <h2 className="text-(--dark-text) font-[FormulaBold] uppercase text-center leading-[0.88] text-[clamp(1rem,2.3vw,3rem)] md:text-[clamp(2rem,2.6vw,3.5rem)] lg:text-[clamp(2.5rem,3.1vw,4rem)] 2xl:text-[clamp(1.8rem,2.2vw,4rem)] tracking-wider">
                 What
                 <br />
                 We
