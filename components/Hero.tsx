@@ -147,7 +147,7 @@ export default function Hero() {
             Build <br /> Your Strength{" "}
           </div>
 
-          <div className="absolute bottom-20 lg:bottom-[4%] 2xl:bottom-[12%] right-[2%] 2xl:right-30 text-white/20 font-bold text-[clamp(2rem,5vw,4rem)] lg:text-5xl  2xl:text-[clamp(2rem,5vw,4rem)]] leading-[1.1] tracking-tight">
+          <div className="absolute bottom-20 lg:bottom-[4%] 2xl:bottom-[12%] right-[2%] text-white/20 font-bold text-[clamp(2rem,5vw,4rem)] lg:text-5xl  2xl:text-[clamp(2rem,5vw,4rem)] leading-[1.1] tracking-tight">
             Play More, <br /> See Real Results
           </div>
         </div>
