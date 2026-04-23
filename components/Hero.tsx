@@ -154,7 +154,7 @@ export default function Hero() {
 
         {/* ───────── UI ───────── */}
         <motion.div
-          className="absolute bottom-0 lg:-bottom-5 2xl:bottom-0 left-0 right-0 z-40 flex justify-between px-8 pb-8"
+          className="absolute bottom-0 lg:-bottom-5 2xl:bottom-0 left-0 right-0 z-40 flex gap-10 md:gap-0 lg:gap-0 2xl:gap-0 justify-between px-6 lg:px-14 2xl:px-20 pb-8"
           style={{ opacity: overlayOpacity }}
         >
           <div className="flex items-center gap-3 text-white/60 text-xs tracking-widest">
@@ -167,8 +167,8 @@ export default function Hero() {
             SCROLL MORE
           </div>
 
-          <div className="text-white/40 text-xs italic">
-            Consistent effort. Real results.
+          <div className="text-white/40 text-xs 2xl:text-sm">
+            Trusted by 1000+ members across Smash2play venues.
           </div>
         </motion.div>
       </div>
