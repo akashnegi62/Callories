@@ -10,6 +10,8 @@ import OfferSection from "@/components/OfferSection";
 import ReviewSection from "@/components/ReviewSection";
 import PricingSection from "@/components/PricingSection";
 import TrialSection from "@/components/TrialSection";
+import CalloriesWorkSection from "@/components/CalloriesWorkSection";
+import PlanDietSection from "@/components/PlanDietSection";
 
 function Page() {
   useEffect(() => {
@@ -27,6 +29,8 @@ function Page() {
       <Hero />
       <ProblemSection />
       <SolutionSection />
+      <CalloriesWorkSection />
+      <PlanDietSection />
       <OfferSection />
       <ReviewSection />
       <PricingSection />
