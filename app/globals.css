@@ -1,1 +1,16 @@
 @import "tailwindcss";
+
+@font-face {
+  font-family: "Formula";
+  src: url(../public/font/FormulaBlack.woff);
+}
+
+@font-face {
+  font-family: "FormulaBold";
+  src: url(../public/font/FormulaBold.woff);
+}
+
+@font-face {
+  font-family: "HelveticaNeueRoman";
+  src: url(../public/font/HelveticaNeueRoman.woff2);
+}

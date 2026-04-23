@@ -7,10 +7,8 @@ import { FaStar } from "react-icons/fa6";
 const reviewsData = [
   {
     id: 1,
-    beforeImg:
-      "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=400&auto=format&fit=crop",
-    afterImg:
-      "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=400&auto=format&fit=crop",
+    beforeImg: "/img/process_img1.webp",
+    afterImg: "/img/process_img2.webp",
     title: "THE GRIND CHANGED MY LIFE!",
     text: '"The Grind has changed my life! The Grind brought about the biggest mental and physical change in my life. I weighed 87 kg. In 8 weeks I lost 10 kg, and eventually in 2023 even 20 kg. I am incredibly happy and proud of the result!"',
     author: "Donna",
@@ -18,10 +16,8 @@ const reviewsData = [
   },
   {
     id: 2,
-    beforeImg:
-      "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=400&auto=format&fit=crop",
-    afterImg:
-      "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=400&auto=format&fit=crop",
+    beforeImg: "/img/process_img3.webp",
+    afterImg: "/img/process_img4.webp",
     title: "I WAS FIT IN 8 WEEKS!",
     text: '"The guidance is really top-notch! The customized schedules and quick responses have helped me tremendously. I feel much fitter now, and running is so much easier. Mentally, I have also become much stronger and gained a lot more perseverance!"',
     author: "Kay",
@@ -29,10 +25,8 @@ const reviewsData = [
   },
   {
     id: 3,
-    beforeImg:
-      "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=400&auto=format&fit=crop",
-    afterImg:
-      "https://images.unsplash.com/photo-1574680077505-ef9964d51b38?q=80&w=400&auto=format&fit=crop",
+    beforeImg: "/img/callories_img1.webp",
+    afterImg: "/img/callories_img2.webp",
     title: "EXCEEDED EXPECTATIONS",
     text: '"I never thought I could achieve these results while still eating the foods I love. The 1-on-1 coaching kept me accountable every single day. Highly recommend to anyone ready to make a real change."',
     author: "Sarah",

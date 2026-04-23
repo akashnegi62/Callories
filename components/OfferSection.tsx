@@ -5,21 +5,21 @@ import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
 import Image from "next/image";
 
 const gridImages = [
-  "/Img/offer.avif",
-  "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=600&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=600&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=600&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1574680077505-ef9964d51b38?q=80&w=600&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1599058917212-d750089bc07e?q=80&w=600&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=600&auto=format&fit=crop",
-  "/assets/center-image.jpg", // INDEX 7: The central hero image
-  "https://images.unsplash.com/photo-1526506115366-5121b6441221?q=80&w=600&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?q=80&w=600&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=600&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=600&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1594882645126-14020914d58d?q=80&w=600&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1583454110551-21f2fa2ec617?q=80&w=600&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1550345332-09e3ac987658?q=80&w=600&auto=format&fit=crop",
+  "/Img/offer.webp",
+  "/img/play_img1.webp",
+  "/img/play_img2.webp",
+  "/img/play_img3.webp",
+  "/img/play_img4.webp",
+  "/img/play_img5.webp",
+  "/img/play_img6.webp",
+  "/img/callories_img1.webp",
+  "/img/callories_img2.webp",
+  "/img/callories_img3.webp",
+  "/img/callories_img4.webp",
+  "/img/process_img1.webp",
+  "/img/process_img2.webp",
+  "/img/process_img3.webp",
+  "/img/process_img4.webp",
 ];
 
 const SCATTER: Record<
@@ -110,7 +110,10 @@ export default function OfferSection() {
   );
 
   return (
-    <section ref={containerRef} className="relative h-[700vh] bg-[#E4E2DC] pb-0 md:pb-0 lg:pb-40 2xl:pb-0">
+    <section
+      ref={containerRef}
+      className="relative h-[700vh] bg-[#E4E2DC] pb-20 md:pb-0 lg:pb-40 2xl:pb-0"
+    >
       {/* Heading */}
       <div className="absolute top-0 w-full flex flex-col items-center pt-40 px-6 text-center z-50 pointer-events-none">
         <h1 className="font-black uppercase text-[#111] leading-[0.9] tracking-tight text-5xl md:text-7xl">
@@ -169,7 +172,7 @@ export default function OfferSection() {
             />
 
             <motion.div className="absolute inset-0 flex items-center justify-center p-3">
-              <h2 className="text-white font-black uppercase text-center leading-[0.88] text-[clamp(1rem,2.2em,3rem)] tracking-[-0.02em] mix-blend-overlay">
+              <h2 className="text-white font-black uppercase text-center leading-[0.88] text-[clamp(1rem,2.2em,3rem)] tracking-[-0.02em]">
                 What
                 <br />
                 We

@@ -35,7 +35,7 @@ export default function TrialSection() {
         <div className="flex flex-col md:flex-row items-center mb-40">
           <div className="relative w-full md:w-3/5 aspect-video overflow-hidden rounded-sm group">
             <Image
-              src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=800"
+              src="/img/motivation_img1.webp"
               alt="Training"
               fill
               className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-in-out"
@@ -62,7 +62,7 @@ export default function TrialSection() {
         <div className="flex flex-col md:flex-row-reverse items-center mb-40">
           <div className="relative w-full md:w-3/5 aspect-video overflow-hidden rounded-sm group">
             <Image
-              src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=800"
+              src="/img/motivation_img2.webp"
               alt="Environment"
               fill
               className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-in-out"
@@ -105,7 +105,7 @@ export default function TrialSection() {
 
           <div className="relative w-full md:w-4/5 aspect-video rounded-sm overflow-hidden bg-zinc-900 group">
             <Image
-              src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?q=80&w=1200"
+              src="/img/motivation_img3.webp"
               alt="Luxury"
               fill
               className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-in-out"
