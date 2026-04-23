@@ -1,3 +1,8 @@
+"use client";
+import { useEffect } from "react";
+import Lenis from "lenis";
+import "lenis/dist/lenis.css";
+// components
 import Hero from "@/components/Hero";
 import ProblemSection from "@/components/ProblemSection";
 import SolutionSection from "@/components/SolutionSection";
@@ -7,6 +12,16 @@ import PricingSection from "@/components/PricingSection";
 import TrialSection from "@/components/TrialSection";
 
 function Page() {
+  useEffect(() => {
+    const lenis = new Lenis({
+      lerp: 0.2,
+    });
+    function raf(time: number) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+  });
   return (
     <main className="min-h-screen w-full">
       <Hero />
