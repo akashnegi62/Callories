@@ -58,7 +58,7 @@ const pricingPlans = [
 
 export default function PricingSection() {
   return (
-    <section className="py-24 bg-(--dark-bg) text-(--dark-text) px-6 font-sans">
+    <section id="pricing" className="py-24 bg-(--dark-bg) text-(--dark-text) px-6 font-sans">
       <div className="max-w-7xl mx-auto">
         {/* Header - Cleaned up */}
         <div className="mb-20 text-center md:text-left">

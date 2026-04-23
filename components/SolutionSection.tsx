@@ -41,7 +41,10 @@ const solutions = [
 
 export default function SolutionSection() {
   return (
-    <section className="py-32 bg-(--dark-bg) text-(--dark-text) px-6 font-sans overflow-hidden">
+    <section
+      id="activities"
+      className="py-32 bg-(--dark-bg) text-(--dark-text) px-6 font-sans overflow-hidden"
+    >
       <div className="max-w-7xl mx-auto w-full">
         <div className="space-y-40">
           {solutions.map((item, index) => {

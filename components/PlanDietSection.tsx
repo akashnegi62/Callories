@@ -147,7 +147,7 @@ export default function PlanDietSection() {
       </div>
 
       {/* --- HOW IT WORKS --- */}
-      <div className="bg-(--white-bg) py-32 px-6">
+      <div id="how-it-works" className="bg-(--white-bg) py-32 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-32">
             <motion.span

@@ -36,7 +36,7 @@ const reviewsData = [
 
 export default function ReviewSection() {
   return (
-    <section className="py-24 bg-(--dark-bg) text-(--white-text) overflow-hidden font-sans relative">
+    <section id="results" className="py-24 bg-(--dark-bg) text-(--white-text) overflow-hidden font-sans relative">
       <style
         dangerouslySetInnerHTML={{
           __html: `

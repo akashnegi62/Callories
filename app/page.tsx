@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import Lenis from "lenis";
 import "lenis/dist/lenis.css";
 // components
+import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import ProblemSection from "@/components/ProblemSection";
 import SolutionSection from "@/components/SolutionSection";
@@ -26,6 +27,7 @@ function Page() {
   });
   return (
     <main className="min-h-screen w-full">
+      <Header/>
       <Hero />
       <ProblemSection />
       <SolutionSection />
