@@ -7,8 +7,8 @@ import { FaStar } from "react-icons/fa6";
 const reviewsData = [
   {
     id: 1,
-    beforeImg: "/Img/process_Img1.webp",
-    afterImg: "/Img/process_Img2.webp",
+    beforeImg: "/Img/process_img1.webp",
+    afterImg: "/Img/process_img2.webp",
     title: "THE GRIND CHANGED MY LIFE!",
     text: '"The Grind has changed my life! The Grind brought about the biggest mental and physical change in my life. I weighed 87 kg. In 8 weeks I lost 10 kg, and eventually in 2023 even 20 kg. I am incredibly happy and proud of the result!"',
     author: "Donna",
@@ -16,8 +16,8 @@ const reviewsData = [
   },
   {
     id: 2,
-    beforeImg: "/Img/process_Img3.webp",
-    afterImg: "/Img/process_Img4.webp",
+    beforeImg: "/Img/process_img3.webp",
+    afterImg: "/Img/process_img4.webp",
     title: "I WAS FIT IN 8 WEEKS!",
     text: '"The guidance is really top-notch! The customized schedules and quick responses have helped me tremendously. I feel much fitter now, and running is so much easier. Mentally, I have also become much stronger and gained a lot more perseverance!"',
     author: "Kay",
@@ -25,8 +25,8 @@ const reviewsData = [
   },
   {
     id: 3,
-    beforeImg: "/Img/callories_Img1.webp",
-    afterImg: "/Img/callories_Img2.webp",
+    beforeImg: "/Img/callories_img1.webp",
+    afterImg: "/Img/callories_img2.webp",
     title: "EXCEEDED EXPECTATIONS",
     text: '"I never thought I could achieve these results while still eating the foods I love. The 1-on-1 coaching kept me accountable every single day. Highly recommend to anyone ready to make a real change."',
     author: "Sarah",

@@ -10,7 +10,7 @@ const solutions = [
     title: "Real Guidance, No Empty Promises",
     description:
       "At Callories, we look beyond standard plans or quick fixes. Your personal coach is by your side 24/7 and helps you with a nutrition and training plan that is truly tailored to your goals, body, and lifestyle.",
-    imageUrl: "/Img/offer_Img1.webp",
+    imageUrl: "/Img/offer_img1.webp",
     imageTag: "1-on-1 coaching",
   },
   {
@@ -18,7 +18,7 @@ const solutions = [
     title: "Movement should feel like play",
     description:
       "Forget the treadmill grind. We integrate badminton, football, and functional games to ensure you're burning calories while having genuine fun. Consistency comes naturally when you actually look forward to your sessions.",
-    imageUrl: "/Img/offer_Img2.webp",
+    imageUrl: "/Img/offer_img2.webp",
     imageTag: "Active Play",
   },
   {
@@ -26,7 +26,7 @@ const solutions = [
     title: "Push your limits with intent",
     description:
       "Our training philosophy is built on science and expert coaching. We provide the structure you need to see visible strength gains and aesthetic results without wasting time on ineffective routines.",
-    imageUrl: "/Img/offer_Img3.webp",
+    imageUrl: "/Img/offer_img3.webp",
     imageTag: "Pro Training",
   },
   {
@@ -34,7 +34,7 @@ const solutions = [
     title: "Sustain your progress for life",
     description:
       "We don't just help you get in shape—we help you stay in shape. With ongoing support, accountability, and a community that keeps you motivated, you'll maintain your results and keep progressing long after you hit your initial goals.",
-    imageUrl: "/Img/offer_Img4.webp",
+    imageUrl: "/Img/offer_img4.webp",
     imageTag: "Lifelong Support",
   },
 ];

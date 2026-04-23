@@ -38,7 +38,7 @@ export default function TrialSection() {
         <div className="flex flex-col md:flex-row items-center mb-40">
           <div className="relative w-full md:w-3/5 aspect-video overflow-hidden rounded-sm group">
             <Image
-              src="/Img/motivation_Img1.webp"
+              src="/Img/motivation_img1.webp"
               alt="Training"
               fill
               className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-in-out"
@@ -65,7 +65,7 @@ export default function TrialSection() {
         <div className="flex flex-col md:flex-row-reverse items-center mb-40">
           <div className="relative w-full md:w-3/5 aspect-video overflow-hidden rounded-sm group">
             <Image
-              src="/Img/motivation_Img2.webp"
+              src="/Img/motivation_img2.webp"
               alt="Environment"
               fill
               className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-in-out"
@@ -108,7 +108,7 @@ export default function TrialSection() {
 
           <div className="relative w-full md:w-4/5 aspect-video rounded-sm overflow-hidden bg-zinc-900 group">
             <Image
-              src="/Img/motivation_Img3.webp"
+              src="/Img/motivation_img3.webp"
               alt="Luxury"
               fill
               className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-in-out"
