@@ -6,34 +6,39 @@ import { motion } from "framer-motion";
 
 const solutions = [
   {
-    eyebrow: "Personalized for You",
-    title: "Real Guidance, No Empty Promises",
-    description:
-      "At Callories, we look beyond standard plans or quick fixes. Your personal coach is by your side 24/7 and helps you with a nutrition and training plan that is truly tailored to your goals, body, and lifestyle.",
+    title: "Personalized for You.",
+    points: [
+      "Body composition analysis & progress tracking",
+      "Personal dietician plan",
+      "1:1 mindset & psychology support",
+    ],
     imageUrl: "/Img/offer_img1.webp",
     imageTag: "1-on-1 coaching",
   },
   {
-    eyebrow: "Play",
-    title: "Movement should feel like play",
-    description:
-      "Forget the treadmill grind. We integrate badminton, football, and functional games to ensure you're burning calories while having genuine fun. Consistency comes naturally when you actually look forward to your sessions.",
+    title: "Play",
+    points: [
+      "Badminton, football, cricket, yoga, zumba & fun fitness games",
+      "Burn calories without feeling like a workout",
+    ],
     imageUrl: "/Img/offer_img2.webp",
     imageTag: "Active Play",
   },
   {
-    eyebrow: "Train",
-    title: "Push your limits with intent",
-    description:
-      "Our training philosophy is built on science and expert coaching. We provide the structure you need to see visible strength gains and aesthetic results without wasting time on ineffective routines.",
+    title: "Train",
+    points: [
+      "Structured fitness, strength & expert coaching",
+      "Designed for real, visible results",
+    ],
     imageUrl: "/Img/offer_img3.webp",
     imageTag: "Pro Training",
   },
   {
-    eyebrow: "Sustain",
-    title: "Sustain your progress for life",
-    description:
-      "We don't just help you get in shape—we help you stay in shape. With ongoing support, accountability, and a community that keeps you motivated, you'll maintain your results and keep progressing long after you hit your initial goals.",
+    title: "Belong",
+    points: [
+      "A supportive community, events & group energy",
+      "Stay consistent because you’re not doing it alone",
+    ],
     imageUrl: "/Img/offer_img4.webp",
     imageTag: "Lifelong Support",
   },
@@ -46,14 +51,29 @@ export default function SolutionSection() {
       className="py-32 bg-(--dark-bg) text-(--dark-text) px-6 font-sans overflow-hidden"
     >
       <div className="max-w-7xl mx-auto w-full">
-        <div className="space-y-40">
+        {/* --- NEW HEADING --- */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-24 md:mb-32"
+        >
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-[1.1] max-w-4xl">
+            Meet Callories - A smarter, more enjoyable way to get fit —
+            combining play, science, and community
+          </h2>
+        </motion.div>
+
+        <div className="space-y-40 md:space-y-64">
           {solutions.map((item, index) => {
             const isEven = index % 2 === 0;
 
             return (
               <div
                 key={index}
-                className={`flex flex-col md:flex-row gap-16 md:gap-24 items-center ${!isEven ? "md:flex-row-reverse" : ""}`}
+                className={`flex flex-col md:flex-row items-center justify-between gap-16 md:gap-32 ${
+                  !isEven ? "md:flex-row-reverse" : ""
+                }`}
               >
                 {/* --- Text Side --- */}
                 <motion.div
@@ -61,25 +81,24 @@ export default function SolutionSection() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.8 }}
-                  className="flex-1 space-y-8"
+                  className="w-full md:w-1/2 space-y-10"
                 >
-                  {/* Eyebrow Tag with Red Dot */}
-                  <div className="flex items-center gap-2">
-                    <span className="w-2 h-2 bg-(--red) rounded-full animate-pulse" />
-                    <span className="text-xs font-[Helvetica] uppercase tracking-widest">
-                      {item.eyebrow}
-                    </span>
-                  </div>
-
-                  {/* High-Impact Condensed Title */}
+                  {/* High-Impact Title */}
                   <h3 className="text-5xl md:text-7xl font-[FormulaBold] uppercase tracking-wide leading-[0.9] max-w-md">
                     {item.title}
                   </h3>
 
-                  {/* Paragraph Description */}
-                  <p className="text-lg leading-relaxed max-w-lg font-[Helvetica]">
-                    {item.description}
-                  </p>
+                  {/* List of Points (Always Left Aligned) */}
+                  <div className="flex flex-col gap-6">
+                    {item.points.map((point, pIdx) => (
+                      <div key={pIdx} className="flex items-start gap-4">
+                        <span className="w-2 h-2 bg-(--red) rounded-full mt-2 shrink-0" />
+                        <span className="text-sm md:text-base font-bold uppercase tracking-widest leading-snug max-w-sm">
+                          {point}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
                 </motion.div>
 
                 {/* --- Image Side --- */}
@@ -88,9 +107,9 @@ export default function SolutionSection() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.8 }}
-                  className="flex-1 relative w-full group"
+                  className="w-full md:w-1/2 relative group"
                 >
-                  <div className="relative aspect-4/5 md:aspect-5/6 rounded-4xl overflow-hidden">
+                  <div className="relative aspect-4/5 md:aspect-4/5 rounded-[2.5rem] md:rounded-[3.5rem] overflow-hidden shadow-2xl">
                     <Image
                       src={item.imageUrl}
                       alt={item.title}
@@ -99,26 +118,21 @@ export default function SolutionSection() {
                     />
 
                     {/* Top Pill Tag */}
-                    <div className="absolute top-6 left-6">
-                      <div className="px-5 py-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-xs font-bold uppercase tracking-wider">
+                    <div className="absolute top-8 left-8">
+                      <div className="px-6 py-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-[10px] font-black uppercase tracking-widest text-white">
                         {item.imageTag}
                       </div>
                     </div>
 
-                    {/* Bottom Circle SVG Overlay */}
-                    <div className="absolute -bottom-4 -right-4 pointer-events-none">
-                      <svg
-                        width="120"
-                        height="120"
-                        viewBox="0 0 100 100"
-                        className="opacity-80"
-                      >
+                    {/* Branding SVG Overlay */}
+                    <div className="absolute -bottom-8 -right-8 pointer-events-none opacity-30">
+                      <svg width="180" height="180" viewBox="0 0 100 100">
                         <circle
                           cx="40"
                           cy="60"
                           r="25"
                           stroke="#e73139"
-                          strokeWidth="2"
+                          strokeWidth="1"
                           fill="none"
                         />
                         <circle
@@ -126,7 +140,7 @@ export default function SolutionSection() {
                           cy="40"
                           r="25"
                           stroke="#e73139"
-                          strokeWidth="2"
+                          strokeWidth="1"
                           fill="none"
                         />
                       </svg>

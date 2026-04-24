@@ -13,22 +13,22 @@ const whyData = [
   {
     icon: <FaFaceSmile />,
     title: "Fun-first workouts",
-    desc: "Ditch the boring grind. We prioritize movement that you actually look forward to, ensuring you stay hooked and never want to quit.",
+    desc: " You don’t quit.",
   },
   {
     icon: <FaUserGear />,
     title: "Personalized plans",
-    desc: "No cookie-cutter routines. We build data-driven paths tailored to your unique biology, goals, and lifestyle so you see real results fast.",
+    desc: "You see results.",
   },
   {
     icon: <FaUsers />,
     title: "Community support",
-    desc: "You aren't in this alone. Join a high-energy network of like-minded individuals who keep you accountable and consistent every day.",
+    desc: "You stay consistent.",
   },
   {
     icon: <FaGraduationCap />,
     title: "Expert guidance",
-    desc: "Stop guessing and start growing. Our certified coaches provide the science-backed guidance needed to move correctly and safely.",
+    desc: "You do it right.",
   },
 ];
 
@@ -37,16 +37,12 @@ export default function WhyWorksSection() {
     <section className="py-24 bg-(--dark-bg) px-6 font-sans overflow-hidden">
       <div className="max-w-7xl mx-auto">
         {/* --- Header Section --- */}
-        <div className="mb-20 text-center md:text-left">
-          <div className="flex items-center gap-3 mb-4 justify-center md:justify-start">
-            <span className="w-12 h-[2px] bg-(--red)"></span>
-            <span className="text-xs font-black uppercase tracking-[0.3em] text-(--red)">
-              The Methodology
-            </span>
-          </div>
+        <div className="mb-20 text-left md:text-left lg:text-center 2xl:text-center">
           <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter leading-[1.2] text-(--dark-text)">
-            Why Callories <br className="hidden md:block" />
-            <span className="text-(--red) font-[FormulaBold] tracking-widest">Actually Works</span>
+            Why Callories <br />
+            <span className="text-(--red) font-[FormulaBold] tracking-widest">
+              Works
+            </span>
           </h2>
         </div>
 

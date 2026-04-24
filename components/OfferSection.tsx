@@ -11,15 +11,15 @@ const gridImages = [
   "/Img/play_img3.webp",
   "/Img/play_img4.webp",
   "/Img/play_img5.webp",
-  "/Img/play_img6.webp",
-  "/Img/callories_img1.webp",
-  "/Img/callories_img2.webp",
-  "/Img/callories_img3.webp",
-  "/Img/callories_img4.webp",
-  "/Img/process_img1.webp",
-  "/Img/process_img2.webp",
-  "/Img/process_img3.webp",
-  "/Img/process_img4.webp",
+  "/Img/play_img6.webp", // 7 cards
+  // "/Img/callories_img1.webp",
+  // "/Img/callories_img2.webp",
+  // "/Img/callories_img3.webp",
+  // "/Img/callories_img4.webp",
+  // "/Img/process_img1.webp",
+  // "/Img/process_img2.webp",
+  // "/Img/process_img3.webp",
+  // "/Img/process_img4.webp",
 ];
 
 const SCATTER: Record<

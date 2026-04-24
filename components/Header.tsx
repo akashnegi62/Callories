@@ -98,7 +98,7 @@ export default function Header() {
               hoverTextColor="group-hover:text-white"
               className="border-(--red) bg-(--red)/10"
             >
-              Book Free Trial
+              Start Free Trial
             </FillButton>
           </div>
 

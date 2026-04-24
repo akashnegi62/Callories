@@ -20,8 +20,14 @@ const whatYouGet = [
     icon: <FaScaleBalanced />,
     text: "Fresh, healthy & portion-controlled food",
   },
-  { icon: <FaTruckFast />, text: "Cooked to support fat loss or muscle gain" },
-  { icon: <FaClock />, text: "Saves time and removes food confusion" },
+  {
+    icon: <FaTruckFast />,
+    text: "Cooked to support fat loss, muscle gain, or overall fitness",
+  },
+  {
+    icon: <FaClock />,
+    text: "Saves time, removes confusion, and keeps you consistent",
+  },
 ];
 
 const howItWorks = [
@@ -29,28 +35,28 @@ const howItWorks = [
     step: "01",
     title: "Assess",
     desc: "Understand your body, lifestyle & goals",
-    pillText: "Body comp + expert consult",
+    pillText: "Body composition analysis + expert consultation",
     icon: <FaMagnifyingGlassChart />,
   },
   {
     step: "02",
     title: "Personalize",
     desc: "Get your custom plan",
-    pillText: "Diet + fitness + mindset",
+    pillText: "Dietician plan + fitness + sports + mindset coaching",
     icon: <FaSliders />,
   },
   {
     step: "03",
     title: "Play & Train",
     desc: "Show up, move, and enjoy the process",
-    pillText: "Sports + yoga + zumba",
+    pillText: "Sports, yoga, zumba & guided workouts",
     icon: <FaPersonRunning />,
   },
   {
     step: "04",
     title: "Track & Transform",
     desc: "Stay consistent and see real results",
-    pillText: "Weekly tracking + progress",
+    pillText: "Weekly tracking, coach support, visible progress",
     icon: <FaChartLine />,
   },
 ];
@@ -85,16 +91,19 @@ export default function PlanDietSection() {
           <div className="space-y-4">
             <h2 className="text-4xl md:text-7xl font-black uppercase text-(--white-text)">
               We Don’t Just Plan Your Diet. <br />
-              <span className="text-(--red) font-[FormulaBold] tracking-wider">We Deliver It</span>
+              <span className="text-(--red) font-[FormulaBold] tracking-wider">
+                We Deliver It
+              </span>
             </h2>
-            <p className="text-2xl font-[FormulaBold] text-(--white-text) uppercase tracking-wider">
-              Too Busy and Struggling to Follow Your Diet? We’ll Handle It.
-            </p>
             <p className="text-(--white-text) text-lg font-[Helvetica] max-w-lg leading-relaxed">
-              With Callories, you don’t have to think about what to eat — we
-              prepare and deliver meals designed specifically for your biology
-              and goals.
+              Too Busy and Struggling to Follow Your Diet? We’ll Handle It. With
+              Callories, you don’t have to think about what to eat — we prepare
+              and deliver meals designed specifically for your biology and
+              goals.
             </p>
+            <h1 className="text-2xl font-[FormulaBold] text-(--white-text) uppercase tracking-wider">
+              What you get :
+            </h1>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -112,6 +121,15 @@ export default function PlanDietSection() {
               </div>
             ))}
           </div>
+          <h1 className="text-2xl font-[FormulaBold] text-(--white-text) uppercase tracking-wider">
+            Why It Works :
+          </h1>
+
+          <p className="text-(--white-text) text-lg font-[Helvetica] max-w-lg leading-relaxed">
+            When your workouts and diet are aligned, results become faster and
+            more consistent This is the easiest way to stay on track — without
+            relying on willpower.
+          </p>
 
           <div className="pt-6">
             <motion.button
@@ -122,6 +140,9 @@ export default function PlanDietSection() {
               Join Meal Program
             </motion.button>
           </div>
+          <h1 className="text-(--white-text) text-lg font-[Helvetica] max-w-lg leading-relaxed">
+            Launching soon — limited early access for Callories members
+          </h1>
         </motion.div>
 
         <motion.div
@@ -221,7 +242,7 @@ export default function PlanDietSection() {
                         <span className="text-(--red) text-xl shrink-0">
                           {item.icon}
                         </span>
-                        <span className="text-[10px] font-bold uppercase tracking-widest text-(--white-text)">
+                        <span className="text-[12px] font-bold uppercase tracking-widest text-(--white-text)">
                           {item.pillText}
                         </span>
                       </motion.div>

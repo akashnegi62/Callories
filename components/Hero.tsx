@@ -64,6 +64,40 @@ export default function Hero() {
           </svg>
         </motion.div>
 
+        {/* ───────── TOP TEXT (ABOVE VIDEO) ───────── */}
+        <motion.div
+          style={{ opacity: overlayOpacity }}
+          className="absolute top-[15%] md:top-[16%] lg:top-[15%] left-0 right-0 z-40 flex justify-center px-6 pointer-events-none"
+        >
+          <div className="text-white/40 text-sm md:text-base lg:text- font-bold 2xl:text-md">
+            Trusted by 1000+ members across Smash2play venues.
+          </div>
+        </motion.div>
+
+        {/* ───────── VIDEO CONTAINER (BELOW TEXT) ───────── */}
+        <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none">
+          <motion.div
+            className="relative overflow-hidden"
+            style={{
+              width: videoWidth,
+              height: videoHeight,
+              borderRadius: videoRadius,
+              y: videoY,
+              scale: vidoScale,
+            }}
+          >
+            {/* Grid & Brackets logic stays inside here... */}
+            <video
+              className="w-full h-full object-cover"
+              autoPlay
+              muted
+              loop
+              playsInline
+              src="/hero-video.mp4"
+            />
+          </motion.div>
+        </div>
+
         {/* ───────── VIDEO ───────── */}
         <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none">
           <motion.div
@@ -141,20 +175,29 @@ export default function Hero() {
           </motion.div>
         </div>
 
+        {/* ───────── 3. SUB-HEADLINE (BELOW VIDEO) ───────── */}
+        <motion.div className="hidden md:block lg:block 2xl:block absolute top-[82%] left-1/2 -translate-x-1/2 w-full max-w-3xl md:max-w-sm lg:max-w-xl 2xl:max-w-3xl px-6 z-40 text-center md:text-left lg:text-center pointer-events-none">
+          <h1 className="text-white/70 text-sm md:text-base lg:text-lg leading-relaxed font-medium tracking-wide">
+            Lose or gain weight through sports, fitness, yoga & expert coaching
+            — with personalized diet plans, mindset support, and a community
+            that keeps you consistent.
+          </h1>
+        </motion.div>
+
         {/* ───────── GHOST TEXT ───────── */}
         <div className="absolute inset-0 z-10 pointer-events-none select-none">
-          <div className="absolute top-20 lg:top-[4%] 2xl:top-[8%] left-[4%] text-white/20 font-bold text-[clamp(2rem,5vw,4rem)] lg:text-5xl  2xl:text-[clamp(2rem,5vw,4rem)] leading-[1.1] tracking-tight">
-            Build <br /> Your Strength{" "}
+          <div className="absolute top-20 lg:top-[20%] 2xl:top-[8%] left-[4%] text-white/20 font-bold text-[clamp(2rem,5vw,4rem)] lg:text-5xl  2xl:text-[clamp(2rem,5vw,4rem)] leading-[1.1] tracking-tight">
+            Play More
           </div>
 
-          <div className="absolute bottom-20 lg:bottom-[4%] 2xl:bottom-[12%] right-[2%] text-white/20 font-bold text-[clamp(2rem,5vw,4rem)] lg:text-5xl  2xl:text-[clamp(2rem,5vw,4rem)] leading-[1.1] tracking-tight">
-            Play More, <br /> See Real Results
+          <div className="absolute bottom-20 lg:bottom-[10%] 2xl:bottom-[12%] right-[2%] text-white/20 font-bold text-[clamp(2rem,5vw,4rem)] lg:text-5xl  2xl:text-[clamp(2rem,5vw,4rem)] leading-[1.1] tracking-tight">
+            See <br /> Real Results
           </div>
         </div>
 
         {/* ───────── UI ───────── */}
         <motion.div
-          className="absolute bottom-0 lg:-bottom-5 2xl:bottom-0 left-0 right-0 z-40 flex gap-10 md:gap-0 lg:gap-0 2xl:gap-0 justify-between px-6 lg:px-14 2xl:px-20 pb-8"
+          className="absolute bottom-2 left-0 right-0 z-40 flex gap-10 md:gap-0 lg:gap-0 2xl:gap-0 justify-between px-6 lg:px-14 2xl:px-20 pb-8"
           style={{ opacity: overlayOpacity }}
         >
           <div className="flex items-center gap-3 text-white/60 text-xs tracking-widest">
@@ -165,10 +208,6 @@ export default function Hero() {
               <FiArrowDown size={16} />
             </motion.div>
             SCROLL MORE
-          </div>
-
-          <div className="text-white/40 text-xs 2xl:text-sm">
-            Trusted by 1000+ members across Smash2play venues.
           </div>
         </motion.div>
       </div>

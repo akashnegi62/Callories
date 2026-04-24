@@ -2,7 +2,6 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { FaDumbbell } from "react-icons/fa6";
 
 const pricingPlans = [
   {
@@ -14,12 +13,6 @@ const pricingPlans = [
     saveText: "",
     buttonText: "ENROLL NOW",
     isFeatured: false,
-    features: [
-      "Body composition analysis",
-      "Personalized diet plan",
-      "All sports & fitness access",
-      "Community support",
-    ],
   },
   {
     duration: "3 Month",
@@ -27,16 +20,9 @@ const pricingPlans = [
     price: "16,999",
     billing: "",
     subPrice: "Only ₹5,666/month",
-    saveText: "Save ₹3,998",
+    saveText: "Save ₹1,333",
     buttonText: "ENROLL NOW",
     isFeatured: true,
-    features: [
-      "Everything in 1 Month",
-      "1:1 mindset coaching",
-      "Weekly progress tracking",
-      "Priority slot booking",
-      "Exclusive community events",
-    ],
   },
   {
     duration: "6 Month",
@@ -44,27 +30,28 @@ const pricingPlans = [
     price: "32,999",
     billing: "",
     subPrice: "Only ₹5,500/month",
-    saveText: "Save ₹8,995",
+    saveText: "Save ₹1,499",
     buttonText: "ENROLL NOW",
     isFeatured: false,
-    features: [
-      "Everything in 3 Month",
-      "Advanced body recomposition",
-      "Meal program early access",
-      "Dedicated coach assigned",
-    ],
   },
 ];
 
 export default function PricingSection() {
   return (
-    <section id="pricing" className="py-24 bg-(--dark-bg) text-(--dark-text) px-6 font-sans">
+    <section
+      id="pricing"
+      className="py-24 bg-(--dark-bg) text-(--dark-text) px-6 font-sans"
+    >
       <div className="max-w-7xl mx-auto">
         {/* Header - Cleaned up */}
         <div className="mb-20 text-center md:text-left">
           {/* Tablet optimization: md:text-5xl (Desktop stays 6xl) */}
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tighter leading-none mb-4">
-            CHOOSE <span className="text-(--red) font-[FormulaBold] tracking-widest">YOUR POWER</span> PLAN
+            CHOOSE{" "}
+            <span className="text-(--red) font-[FormulaBold] tracking-widest">
+              YOUR POWER
+            </span>{" "}
+            PLAN
           </h2>
           <p className="text-(--dark-text) font-[Helvetica] max-w-md text-sm md:text-base mx-auto md:mx-0">
             Flexible memberships for all fitness levels with expert guidance and
@@ -127,36 +114,6 @@ export default function PricingSection() {
                 <p className="text-zinc-500 text-xs uppercase font-[Helvetica] tracking-wider">
                   {plan.subtitle}
                 </p>
-              </div>
-
-              {/* CTA Button */}
-              <button
-                className={`w-full py-4 rounded-xl font-[Helvetica] uppercase tracking-widest text-sm transition-all mb-12 ${
-                  plan.isFeatured
-                    ? "bg-(--red) text-white shadow-[0_0_20px_rgba(220,38,38,0.3)] hover:bg-red-700"
-                    : "bg-zinc-900 text-zinc-300 border border-zinc-800 hover:bg-zinc-800"
-                }`}
-              >
-                {plan.buttonText}
-              </button>
-
-              {/* Features */}
-              <div className="space-y-6">
-                <p className="text-xs font-black uppercase tracking-[0.2em] text-zinc-200">
-                  Includes:
-                </p>
-                <ul className="space-y-4">
-                  {plan.features.map((feature, i) => (
-                    <li key={i} className="flex items-start gap-3">
-                      <FaDumbbell
-                        className={`mt-1 text-sm shrink-0 transition-colors ${plan.isFeatured ? "text-red-500" : "text-zinc-600 group-hover:text-red-500"}`}
-                      />
-                      <span className="text-zinc-400 text-sm font-[Helvetica] leading-tight">
-                        {feature}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
               </div>
             </motion.div>
           ))}

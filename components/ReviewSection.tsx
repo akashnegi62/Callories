@@ -2,35 +2,25 @@
 
 import React from "react";
 import Image from "next/image";
-import { FaStar } from "react-icons/fa6";
 
 const reviewsData = [
   {
     id: 1,
     beforeImg: "/Img/process_img1.webp",
     afterImg: "/Img/process_img2.webp",
-    title: "THE GRIND CHANGED MY LIFE!",
-    text: '"The Grind has changed my life! The Grind brought about the biggest mental and physical change in my life. I weighed 87 kg. In 8 weeks I lost 10 kg, and eventually in 2023 even 20 kg. I am incredibly happy and proud of the result!"',
-    author: "Donna",
-    rating: 5,
+    videoUrl: "/hero-video.mp4", // Add your video paths here
   },
   {
     id: 2,
     beforeImg: "/Img/process_img3.webp",
     afterImg: "/Img/process_img4.webp",
-    title: "I WAS FIT IN 8 WEEKS!",
-    text: '"The guidance is really top-notch! The customized schedules and quick responses have helped me tremendously. I feel much fitter now, and running is so much easier. Mentally, I have also become much stronger and gained a lot more perseverance!"',
-    author: "Kay",
-    rating: 5,
+    videoUrl: "/hero-video.mp4",
   },
   {
     id: 3,
     beforeImg: "/Img/callories_img1.webp",
     afterImg: "/Img/callories_img2.webp",
-    title: "EXCEEDED EXPECTATIONS",
-    text: '"I never thought I could achieve these results while still eating the foods I love. The 1-on-1 coaching kept me accountable every single day. Highly recommend to anyone ready to make a real change."',
-    author: "Sarah",
-    rating: 5,
+    videoUrl: "/hero-video.mp4",
   },
 ];
 
@@ -49,37 +39,32 @@ export default function ReviewSection() {
         }}
       />
 
-      {/* Header Area (Unchanged) */}
+      {/* Header Area */}
       <div className="max-w-[1400px] mx-auto px-6 mb-16 relative flex flex-col items-center">
         <div className="flex items-center gap-2 mb-4">
-          <span className="w-2.5 h-2.5 bg-(--red) rounded-full"></span>
+          <span className="w-2.5 h-2.5 bg-(--red) rounded-full animate-pulse"></span>
           <span className="text-xs font-[Helvetica] uppercase tracking-widest text-(--dark-text)">
-            Reviews
+            Real Results
           </span>
         </div>
-        <h2 className="text-5xl md:text-6xl lg:text-7xl font-black uppercase tracking-tighter text-center leading-[0.9] text-(--dark-text)">
-          Not our words.
-          <br />
-          But theirs
+        <h2 className="text-5xl md:text-6xl lg:text-7xl font-[FormulaBold] uppercase tracking-widest text-center leading-[0.9] text-(--dark-text)">
+          TRANSFORMATIONS
         </h2>
-        {/* ... Trustpilot hidden lg:flex ... */}
       </div>
 
       {/* Carousel */}
       <div className="flex gap-4 md:gap-5 lg:gap-6 overflow-x-auto px-6 pb-12 snap-x snap-mandatory hide-scrollbar cursor-grab active:cursor-grabbing">
         {reviewsData.map((review) => (
           <React.Fragment key={review.id}>
-            {/* 1. Image Card with Tags */}
-            <div className="shrink-0 w-[85vw] sm:w-[320px] md:w-[350px] lg:w-[400px] aspect-4/5 rounded-4xl md:rounded-[2.5rem] overflow-hidden flex gap-1 snap-center bg-(--dark-bg)">
-              {/* Before Image Container */}
+            {/* 1. Image Card (Before/After) */}
+            <div className="shrink-0 w-[85vw] sm:w-[320px] md:w-[350px] lg:w-[400px] aspect-4/5 rounded-4xl md:rounded-[2.5rem] overflow-hidden flex gap-1 snap-center bg-black/20">
               <div className="w-1/2 h-full relative group">
                 <Image
                   src={review.beforeImg}
-                  alt={`${review.author} before`}
+                  alt={`author before`}
                   fill
-                  className="object-cover grayscale-20"
+                  className="object-cover grayscale-30"
                 />
-                {/* BEFORE TAG */}
                 <div className="absolute top-4 left-4 z-10">
                   <span className="px-3 py-1 bg-black/40 backdrop-blur-md border border-white/10 rounded-full text-[10px] font-black uppercase tracking-widest text-white shadow-xl">
                     Before
@@ -87,15 +72,13 @@ export default function ReviewSection() {
                 </div>
               </div>
 
-              {/* After Image Container */}
               <div className="w-1/2 h-full relative">
                 <Image
                   src={review.afterImg}
-                  alt={`${review.author} after`}
+                  alt={`author after`}
                   fill
                   className="object-cover"
                 />
-                {/* AFTER TAG */}
                 <div className="absolute top-4 right-4 z-10">
                   <span className="px-3 py-1 bg-(--red) rounded-full text-[10px] font-black uppercase tracking-widest text-white shadow-lg">
                     After
@@ -104,25 +87,36 @@ export default function ReviewSection() {
               </div>
             </div>
 
-            {/* 2. Text Review Card (Unchanged) */}
-            <div className="shrink-0 w-[85vw] sm:w-[320px] md:w-[350px] lg:w-[400px] aspect-4/5 rounded-4xl md:rounded-[2.5rem] bg-(--white-bg) text-(--white-text) p-8 md:p-9 lg:p-10 flex flex-col snap-center">
-              <h3 className="text-2xl md:text-3xl lg:text-4xl font-[FormulaBold] uppercase tracking-wider leading-[0.9] mb-4">
-                {review.title}
-              </h3>
-              <div className="flex gap-1.5 mb-6 text-(--red)">
-                {[...Array(review.rating)].map((_, i) => (
-                  <FaStar key={i} className="text-lg md:text-xl" />
-                ))}
-              </div>
-              <p className="text-sm lg:text-base font-[Helvetica] leading-relaxed mb-auto text-(--white-text)">
-                {review.text}
-              </p>
-              <p className="text-xl font-[FormulaBold] text-(--white-text) mt-6">
-                {review.author}
-              </p>
+            {/* 2. VIDEO Review Card */}
+            <div className="shrink-0 w-[85vw] sm:w-[320px] md:w-[350px] lg:w-[400px] aspect-4/5 rounded-4xl md:rounded-[2.5rem] bg-black overflow-hidden relative group snap-center">
+              <video
+                src={review.videoUrl}
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500"
+              />
+
+              {/* Overlay with Author Name */}
+              <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute bottom-8 left-8"></div>
             </div>
           </React.Fragment>
         ))}
+      </div>
+
+      {/* Bottom Text Anchor */}
+      <div className="mt-12 px-6 flex justify-center text-center">
+        <div className="max-w-3xl space-y-4">
+          <p className="text-2xl md:text-3xl font-[FormulaBold] uppercase tracking-widest text-(--dark-text) leading-none">
+            “Real people. Real Transformations.”
+          </p>
+          <p className="text-sm md:text-base font-[Helvetica] text-(--dark-text) opacity-70 tracking-wide uppercase">
+            See how our members lost weight, gained strength, and stayed
+            consistent.
+          </p>
+        </div>
       </div>
     </section>
   );
