@@ -128,7 +128,7 @@ export default function SolutionSection() {
                     </div>
 
                     {/* Branding SVG Overlay */}
-                    <div className="absolute -bottom-8 -right-8 pointer-events-none opacity-30">
+                    <div className="absolute -bottom-6 -right-6 pointer-events-none">
                       <svg width="180" height="180" viewBox="0 0 100 100">
                         <circle
                           cx="40"
