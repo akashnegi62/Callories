@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
@@ -37,7 +37,6 @@ const offerData = [
     title: "Football",
     sub: "Team play with high intensity",
     tag: "Burn calories without feeling like a workout",
-
     descPoints: ["Build stamina, agility, and endurance"],
     img: "/Img/play_img4.webp",
   },
@@ -58,26 +57,36 @@ const offerData = [
 ];
 
 export default function OfferSection() {
-  const [expandedIndex, setExpandedIndex] = useState<number | null>(0); // Default first one open
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(0);
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  // --- Detect Desktop for Height Logic ---
+  useEffect(() => {
+    const checkScreen = () => {
+      setIsDesktop(window.innerWidth >= 1024);
+    };
+    checkScreen();
+    window.addEventListener("resize", checkScreen);
+    return () => window.removeEventListener("resize", checkScreen);
+  }, []);
 
   return (
     <section className="bg-(--dark-bg) py-20 md:py-32 px-4 md:px-6 overflow-hidden min-h-screen flex flex-col items-center justify-center">
       {/* Header Area */}
-      <div className="max-w-7xl mx-auto w-full mb-12 md:mb-16">
-        <h2 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-[FormulaBold] uppercase text-(--dark-text) tracking-tight md:tracking-widest leading-none lg:-ml-15 text-center lg:text-left">
+      <div className="max-w-7xl mx-auto w-full mb-10 md:mb-16">
+        <h2 className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-[FormulaBold] uppercase text-(--dark-text) tracking-tight md:tracking-widest leading-none lg:-ml-15 text-center lg:text-left">
           Move.<span className="text-(--red)">Play.</span>Enjoy.
         </h2>
       </div>
 
       {/* --- RESPONSIVE EXPANDING ACCORDION --- */}
-      <div className="flex flex-col lg:flex-row gap-3 w-full max-w-[1400px] h-[750px] md:h-[900px] lg:h-[550px]">
+      <div className="flex flex-col lg:flex-row gap-3 w-full max-w-[1400px] h-[800px] md:h-[950px] lg:h-[550px]">
         {offerData.map((item, index) => {
           const isExpanded = expandedIndex === index;
 
           return (
             <motion.div
               key={index}
-              // Hover for Desktop, Click for Mobile/Tablet
               onMouseEnter={() => setExpandedIndex(index)}
               onClick={() => setExpandedIndex(index)}
               initial={false}
@@ -87,7 +96,6 @@ export default function OfferSection() {
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
               className="relative group cursor-pointer overflow-hidden rounded-2xl md:rounded-3xl bg-zinc-900 border border-white/5 shadow-2xl"
             >
-              {/* Background Image */}
               <Image
                 src={item.img}
                 alt={item.title}
@@ -99,19 +107,15 @@ export default function OfferSection() {
                 }`}
               />
 
-              {/* Gradient Overlay */}
               <div className="absolute inset-0 bg-linear-to-t from-black via-black/20 to-transparent z-10" />
 
               {/* 1. TOP CONTENT: Title */}
               <div className="absolute top-5 left-5 md:top-8 md:left-8 z-20">
                 <div
-                  className={`
-                    ${!isExpanded ? "lg:rotate-90 lg:origin-left lg:mt-24" : ""} 
-                    transition-all duration-500
-                  `}
+                  className={`${!isExpanded ? "lg:rotate-90 lg:origin-left lg:mt-24" : ""} transition-all duration-500`}
                 >
                   <h3
-                    className={`font-[FormulaBold] uppercase tracking-widest text-white leading-none transition-all duration-500 ${
+                    className={`font-[FormulaBold] uppercase tracking-widest text-white leading-none ${
                       isExpanded
                         ? "text-2xl md:text-4xl lg:text-5xl"
                         : "text-lg md:text-xl lg:text-4xl whitespace-nowrap"
@@ -128,13 +132,17 @@ export default function OfferSection() {
                   {isExpanded && (
                     <motion.div
                       initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "8vh", opacity: 1 }}
+                      // --- Dynamic Height Applied Here ---
+                      animate={{
+                        height: isDesktop ? "20vh" : "auto",
+                        opacity: 1,
+                      }}
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
                       className="overflow-hidden"
                     >
-                      <div className="space-y-2 md:space-y-3 pb-4">
-                        <p className="text-white text-sm md:text-lg font-black uppercase tracking-widest leading-tight">
+                      <div className="space-y-3 md:space-y-4 pb-4">
+                        <p className="text-white text-xs md:text-lg font-black uppercase tracking-widest leading-tight">
                           {item.sub}
                         </p>
 
@@ -144,8 +152,9 @@ export default function OfferSection() {
                             {item.descPoints.join(", ")}
                           </p>
                         </div>
-                        <div className="flex items-center">
-                          <p className="text-white italic text-sm md:text-sm font-black uppercase tracking-widest leading-tight">
+
+                        <div className="pt-2">
+                          <p className="text-(--red) italic text-[9px] md:text-xs font-black uppercase tracking-[0.2em] leading-tight">
                             &quot;{item.tag}&quot;
                           </p>
                         </div>
@@ -153,13 +162,6 @@ export default function OfferSection() {
                     </motion.div>
                   )}
                 </AnimatePresence>
-
-                {/* Marker logic - Hidden when expanded */}
-                <motion.div
-                  animate={{ opacity: isExpanded ? 0 : 1 }}
-                  transition={{ duration: 0.3 }}
-                  className="w-16 md:w-30 h-[.5px] bg-white/20 rounded-full"
-                />
               </div>
             </motion.div>
           );
