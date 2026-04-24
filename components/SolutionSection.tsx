@@ -59,8 +59,11 @@ export default function SolutionSection() {
           className="mb-24 md:mb-32"
         >
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-[1.1] max-w-4xl">
-            Meet Callories - A smarter, more enjoyable way to get fit —
-            combining play, science, and community
+            Meet Callories -{" "}
+            <span className="text-(--red) font-[FormulaBold] tracking-wider">
+              A smarter, more enjoyable way to get fit
+            </span>{" "}
+            — combining play, science, and community
           </h2>
         </motion.div>
 

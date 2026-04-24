@@ -117,7 +117,11 @@ export default function OfferSection() {
       {/* Heading */}
       <div className="absolute top-0 w-full flex flex-col items-center pt-40 px-6 text-center z-50 pointer-events-none">
         <h1 className="font-black uppercase text-(--dark-text) leading-[0.9] tracking-tight text-5xl md:text-7xl">
-          Move. Play. Enjoy.
+          Move.{" "}
+          <span className="text-(--red) font-[FormulaBold] tracking-wider">
+            Play
+          </span>
+          . Enjoy.
         </h1>
         <p className="mt-5 text-xl text-(--dark-text) font-[Helvetica] leading-relaxed">
           A weight-neutral program that builds sustainable habits, not quick
