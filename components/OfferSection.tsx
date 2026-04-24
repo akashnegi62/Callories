@@ -8,42 +8,50 @@ const offerData = [
   {
     title: "General Fitness",
     sub: "Strength, conditioning & guided workouts",
+    tag: "Burn calories without feeling like a workout",
     descPoints: ["Build muscle", "Improve endurance", "See real results"],
     img: "/Img/play_img6.webp",
   },
   {
     title: "Yoga",
     sub: "Stretch, recover, and build flexibility",
+    tag: "Burn calories without feeling like a workout",
     descPoints: ["Feel lighter, calmer, and more balanced"],
     img: "/Img/play_img5.webp",
   },
   {
     title: "Zumba",
     sub: "Dance your way to fitness",
+    tag: "Burn calories without feeling like a workout",
     descPoints: ["High-energy fun", "Burn serious calories"],
     img: "/Img/play_img1.webp",
   },
   {
     title: "Badminton",
     sub: "Fast-paced, addictive gameplay",
+    tag: "Burn calories without feeling like a workout",
     descPoints: ["Cardio that doesn’t feel like cardio"],
     img: "/Img/offer_img2.webp",
   },
   {
     title: "Football",
     sub: "Team play with high intensity",
+    tag: "Burn calories without feeling like a workout",
+
     descPoints: ["Build stamina, agility, and endurance"],
     img: "/Img/play_img4.webp",
   },
   {
     title: "Cricket",
     sub: "Familiar, social, and engaging",
+    tag: "Burn calories without feeling like a workout",
     descPoints: ["Stay active while having fun"],
     img: "/Img/play_img2.webp",
   },
   {
     title: "Fitness Games",
     sub: "Circuits, relays & challenges",
+    tag: "Burn calories without feeling like a workout",
     descPoints: ["Burn fat", "Playful competition", "High-intensity circuits"],
     img: "/Img/offer.webp",
   },
@@ -134,6 +142,11 @@ export default function OfferSection() {
                           <span className="w-1.5 h-1.5 bg-(--red) rounded-full shrink-0" />
                           <p className="text-(--dark-text) font-[Helvetica] tracking-widest text-[9px] md:text-xs uppercase font-bold leading-none">
                             {item.descPoints.join(", ")}
+                          </p>
+                        </div>
+                        <div className="flex items-center">
+                          <p className="text-white italic text-sm md:text-sm font-black uppercase tracking-widest leading-tight">
+                            &quot;{item.tag}&quot;
                           </p>
                         </div>
                       </div>
