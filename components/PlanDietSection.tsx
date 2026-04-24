@@ -64,7 +64,7 @@ const howItWorks = [
 export default function PlanDietSection() {
   const timelineRef = useRef<HTMLDivElement>(null);
 
-  // -- Scroll logic for the "Train" line animation --
+  // -- Scroll logic for the Timeline animation --
   const { scrollYProgress } = useScroll({
     target: timelineRef,
     offset: ["start 40%", "end 60%"],
@@ -80,8 +80,9 @@ export default function PlanDietSection() {
 
   return (
     <section className="bg-(--white-bg) font-sans overflow-hidden">
-      {/* --- DIET SECTION --- */}
+      {/* ─── DIET SECTION ─── */}
       <div className="py-24 px-6 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        {/* Left Side: Content */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -89,7 +90,7 @@ export default function PlanDietSection() {
           className="space-y-8"
         >
           <div className="space-y-4">
-            <h2 className="text-4xl md:text-7xl font-black uppercase text-(--white-text)">
+            <h2 className="text-4xl md:text-7xl font-black uppercase text-(--white-text) leading-[0.95]">
               We Don’t Just Plan Your Diet. <br />
               <span className="text-(--red) font-[FormulaBold] tracking-wider">
                 We Deliver It
@@ -121,53 +122,58 @@ export default function PlanDietSection() {
               </div>
             ))}
           </div>
-          <h1 className="text-2xl font-[FormulaBold] text-(--white-text) uppercase tracking-wider">
-            Why It Works :
-          </h1>
 
-          <p className="text-(--white-text) text-lg font-[Helvetica] max-w-lg leading-relaxed">
-            When your workouts and diet are aligned, results become faster and
-            more consistent This is the easiest way to stay on track — without
-            relying on willpower.
-          </p>
+          <div className="space-y-4">
+            <h1 className="text-2xl font-[FormulaBold] text-(--white-text) uppercase tracking-wider">
+              Why It Works :
+            </h1>
+            <p className="text-(--white-text) text-lg font-[Helvetica] max-w-lg leading-relaxed">
+              When your workouts and diet are aligned, results become faster and
+              more consistent. This is the easiest way to stay on track —
+              without relying on willpower.
+            </p>
+          </div>
 
-          <div className="pt-6">
+          <div className="pt-6 space-y-6">
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-(--red) text-(--dark-text) font-black uppercase tracking-widest px-10 py-5 rounded-full shadow-xl"
+              className="bg-(--red) text-white font-black uppercase tracking-widest px-10 py-5 rounded-full shadow-xl"
             >
               Join Meal Program
             </motion.button>
+            <h1 className="text-(--white-text) text-sm font-[Helvetica] max-w-lg leading-relaxed opacity-60">
+              Launching soon — limited early access for Callories members
+            </h1>
           </div>
-          <h1 className="text-(--white-text) text-lg font-[Helvetica] max-w-lg leading-relaxed">
-            Launching soon — limited early access for Callories members
-          </h1>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          className="relative aspect-square rounded-[3rem] overflow-hidden shadow-2xl"
-        >
-          <Image
-            src="/Img/diet_img1.webp"
-            alt="Healthy Delivery"
-            fill
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-black/5" />
-          <div className="absolute bottom-8 left-8 right-8 bg-(--white-bg) backdrop-blur-md p-6 rounded-2xl border border-zinc-100 shadow-lg">
-            <p className="text-(--white-text) font-[Helvetica] uppercase italic text-sm md:text-base">
-              &quot;This is the easiest way to stay on track — without relying
-              on willpower.&quot;
-            </p>
-          </div>
-        </motion.div>
+        {/* Right Side: Rotating Plate (No Shadows/Overlay) */}
+        <div className="relative flex items-center justify-center">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 2 }}
+            animate={{ rotate: 360 }}
+            transition={{
+              opacity: { duration: 1 },
+              scale: { duration: 1 },
+              rotate: { duration: 25, repeat: Infinity, ease: "linear" },
+            }}
+            viewport={{ once: true }}
+            className="relative aspect-square w-full max-w-[550px]"
+          >
+            <Image
+              src="/Img/diet.webp"
+              alt="Healthy Delivery Plate"
+              fill
+              className="object-contain"
+              priority
+            />
+          </motion.div>
+        </div>
       </div>
 
-      {/* --- HOW IT WORKS --- */}
+      {/* ─── HOW IT WORKS SECTION ─── */}
       <div id="how-it-works" className="bg-(--white-bg) py-32 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-32">
@@ -188,10 +194,10 @@ export default function PlanDietSection() {
           </div>
 
           <div ref={timelineRef} className="relative">
-            {/* --- Static Track Line (Lighter for White Theme) --- */}
-            <div className="absolute top-0 bottom-0 left-[39px] lg:left-1/2 w-[2px] bg-(--dark-bg) lg:-translate-x-1/2" />
+            {/* Track Line */}
+            <div className="absolute top-0 bottom-0 left-[39px] lg:left-1/2 w-[2px] bg-zinc-200 lg:-translate-x-1/2" />
 
-            {/* --- Animated Train Line --- */}
+            {/* Animated Line */}
             <motion.div
               style={{ height: lineHeight }}
               className="absolute top-0 left-[39px] lg:left-1/2 w-[2px] bg-(--red) origin-top z-10 lg:-translate-x-1/2"
@@ -199,7 +205,6 @@ export default function PlanDietSection() {
 
             <div className="space-y-24 lg:space-y-0">
               {howItWorks.map((item, idx) => {
-                // Parity Logic: 1 & 3 = Right (Personalize & Transform)
                 const isRight = idx % 2 !== 0;
 
                 return (
@@ -213,15 +218,14 @@ export default function PlanDietSection() {
                       ${isRight ? "lg:flex-row" : "lg:flex-row-reverse"}
                     `}
                   >
-                    {/* Circle (Station) */}
+                    {/* Step Circle */}
                     <div className="shrink-0 relative z-20 mt-1 lg:mt-0 lg:absolute lg:left-1/2 lg:-translate-x-1/2">
-                      <div className="w-20 h-20 rounded-full bg-(--white-bg) border-4 border-(--white-bg) flex items-center justify-center text-2xl font-black text-(--white-text) group-hover:border-(--red) group-hover:text-(--red) shadow-xl transition-all duration-500">
+                      <div className="w-20 h-20 rounded-full bg-(--white-bg) border-4 border-zinc-100 flex items-center justify-center text-2xl font-black text-(--white-text) group-hover:border-(--red) group-hover:text-(--red) shadow-xl transition-all duration-500">
                         {idx + 1}
                       </div>
-                      <div className="absolute inset-0 rounded-full bg-(--red)/10 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     </div>
 
-                    {/* Content (Zig-Zag) */}
+                    {/* Content Box */}
                     <div
                       className={`flex flex-col gap-3 pl-8 lg:pl-0 lg:w-1/2 
                       ${isRight ? "lg:pl-20 text-left items-start" : "lg:pr-20 text-right items-end"}
@@ -234,10 +238,10 @@ export default function PlanDietSection() {
                         {item.desc}
                       </p>
 
-                      {/* Pill Tag (Updated for White Theme) */}
+                      {/* Pill Tag */}
                       <motion.div
                         whileHover={{ scale: 1.05 }}
-                        className="mt-6 flex items-center gap-3 px-6 py-3 rounded-full bg-(--white-bg) border border-(--white-bg) shadow-sm hover:border-(--red)/40 transition-all cursor-default"
+                        className="mt-6 flex items-center gap-3 px-6 py-3 rounded-full bg-white border border-zinc-100 shadow-sm hover:border-(--red)/40 transition-all cursor-default"
                       >
                         <span className="text-(--red) text-xl shrink-0">
                           {item.icon}
@@ -248,7 +252,6 @@ export default function PlanDietSection() {
                       </motion.div>
                     </div>
 
-                    {/* Spacer for Zig-Zag */}
                     <div className="hidden lg:block lg:w-1/2" />
                   </motion.div>
                 );
