@@ -1,166 +1,177 @@
 "use client";
 
-import React, { useRef, useState } from "react";
-import {
-  motion,
-  useScroll,
-  useMotionValueEvent,
-  AnimatePresence,
-} from "framer-motion";
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
-// data
 const problems = [
   {
     id: 1,
     eyebrow: "MOTIVATION",
-    darkText: "You start strong…",
-    lightText: "then lose motivation",
-    video: "/hero-video.mp4",
-    bgImage: "/Img/wireframe1.png",
+    title: "You start strong… then lose motivation",
+    img: "/Img/callories_img1.webp",
   },
   {
     id: 2,
     eyebrow: "ROUTINE",
-    darkText: "Workouts feel",
-    lightText: "boring and repetitive",
-    video: "/hero-video.mp4",
-    bgImage: "/Img/wireframe1.png",
+    title: "Workouts feel boring and repetitive",
+    img: "/Img/callories_img2.webp",
   },
   {
     id: 3,
     eyebrow: "NUTRITION",
-    darkText: "Diets are too",
-    lightText: "strict to follow",
-    video: "/hero-video.mp4",
-    bgImage: "/Img/wireframe1.png",
+    title: "Diets are too strict to follow long term",
+    img: "/Img/callories_img3.webp",
   },
   {
     id: 4,
     eyebrow: "SUPPORT",
-    darkText: "No one keeps you",
-    lightText: "accountable",
-    video: "/hero-video.mp4",
-    bgImage: "/Img/wireframe1.png",
+    title: "No one keeps you truly accountable",
+    img: "/Img/callories_img4.webp",
   },
   {
     id: 5,
     eyebrow: "OUTCOME",
-    darkText: "No results —",
-    lightText: "so you give up",
-    video: "/hero-video.mp4",
-    bgImage: "/Img/wireframe1.png",
+    title: "No results quickly, so you give up",
+    img: "/Img/motivation_img1.webp",
   },
 ];
 
 export default function ProblemSection() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [index, setIndex] = useState(0);
+  const [direction, setDirection] = useState(0);
 
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"],
-  });
+  // --- Auto Swipe ---
+  useEffect(() => {
+    const timer = setInterval(() => {
+      // eslint-disable-next-line react-hooks/immutability
+      nextStep();
+    }, 2000);
+    return () => clearInterval(timer);
+  }, [index]);
 
-  useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    const newIndex = Math.min(
-      Math.floor(latest * problems.length),
-      problems.length - 1,
-    );
-    if (newIndex !== activeIndex) {
-      setActiveIndex(newIndex);
-    }
-  });
+  const nextStep = () => {
+    setDirection(1);
+    setIndex((prev) => (prev + 1) % problems.length);
+  };
 
-  const activeData = problems[activeIndex];
+  const getVisibleIndices = () => {
+    const prev = (index - 1 + problems.length) % problems.length;
+    const next = (index + 1) % problems.length;
+    return { prev, active: index, next };
+  };
+
+  const { prev, active, next } = getVisibleIndices();
+  const visibleItems = [
+    { ...problems[prev], pos: "prev" },
+    { ...problems[active], pos: "active" },
+    { ...problems[next], pos: "next" },
+  ];
 
   return (
-    // Increased height to 700vh for smoother, longer scroll transitions
-    <section
-      ref={containerRef}
-      className="relative bg-(--white-bg) min-h-[700vh] font-sans pb-30 md:pb-50 lg:pb-80"
-    >
-      {/* Sticky Container */}
-      <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-between px-4 py-12 md:py-16">
-        {/* Upper Heading */}
-        <div className="w-full text-center px-4 shrink-0 z-20">
-          <h2 className="text-4xl md:text-6xl lg:text-[5.5rem] font-black uppercase tracking-tighter text-(--white-text) leading-[0.85] max-w-5xl mx-auto drop-shadow-sm">
-            Why Most People
-            <br />
-            Fail at Fitness
+    <section className="bg-(--white-bg) py-24 md:py-32 overflow-hidden flex flex-col items-center">
+      <div className="max-w-7xl mx-auto px-6 w-full">
+        {/* --- Heading --- */}
+        <div className="text-center mb-16 md:mb-24">
+          <h2 className="text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter text-(--white-text) leading-[0.85]">
+            Why Most People <br />
+            <span className="text-(--red) text-5xl md:text-7xl lg:text-8xl font-[FormulaBold] tracking-widest">
+              Fail at Fitness
+            </span>
           </h2>
         </div>
 
-        {/* Video Container */}
-        <div className="w-[85%] md:w-[90%] h-[25vh] md:h-[70vh] shrink-0 z-10">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={`video-${activeData.id}`}
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: "100%", opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.6, ease: "easeInOut" }}
-              className="w-full relative overflow-hidden bg-black shadow-xl"
-            >
-              <video
-                src={activeData.video}
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full h-full object-cover opacity-80"
-              />
-            </motion.div>
-          </AnimatePresence>
-        </div>
+        {/* --- Carousel Display --- */}
+        <div className="relative flex justify-center items-center h-[450px] md:h-[550px] w-full">
+          <AnimatePresence mode="popLayout" initial={false}>
+            {visibleItems.map((item) => {
+              const isCenter = item.pos === "active";
 
-        {/* Single Card Container */}
-        {/* We change -mt-100 to: mt-10 (mobile gap) and md:-mt-100 (desktop overlap) */}
-        <div className="relative w-85 md:w-95 h-105 md:h-115 shrink-0 z-20 mt-10 md:-mt-100">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={`card-${activeData.id}`}
-              initial={{ opacity: 0, x: 200, scale: 0.95 }}
-              animate={{ opacity: 1, x: 0, scale: 1 }}
-              exit={{ opacity: 0, x: -200, scale: 0.95 }}
-              transition={{ duration: 0.5, ease: "easeInOut" }}
-              className="absolute inset-0"
-            >
-              {/* Card UI */}
-              <div className="bg-white border border-zinc-200 rounded-3xl p-8 md:p-10 flex flex-col relative shadow-[0_8px_30px_rgb(0,0,0,0.06)] w-full h-full overflow-hidden">
-                {/* Small Header */}
-                <span className="text-[11px] md:text-xs uppercase text-zinc-400 tracking-[0.2em] font-semibold mb-6 z-10">
-                  {activeData.eyebrow}
-                </span>
-
-                {/* Large Elegant Two-Tone Text */}
-                <h3 className="text-3xl md:text-[2.5rem] font-[Helvetica] leading-[1.1] tracking-tight z-10">
-                  <span className="text-(--white-text)">
-                    {activeData.darkText}
-                  </span>
-                  <br />
-                  <span className="text-zinc-400">{activeData.lightText}</span>
-                </h3>
-
-                {/* Isometric Background Image */}
-                <div className="absolute bottom-4 right-4 w-[90%] h-[55%] z-0 pointer-events-none">
+              return (
+                <motion.div
+                  key={`${item.id}-${item.pos}`}
+                  initial={{
+                    opacity: 0,
+                    x:
+                      item.pos === "next"
+                        ? 300
+                        : item.pos === "prev"
+                          ? -300
+                          : 0,
+                    scale: 0.8,
+                  }}
+                  animate={{
+                    opacity: isCenter ? 1 : 0.3,
+                    x:
+                      item.pos === "next"
+                        ? "110%"
+                        : item.pos === "prev"
+                          ? "-110%"
+                          : "0%",
+                    scale: isCenter ? 1.1 : 0.85,
+                    zIndex: isCenter ? 20 : 10,
+                  }}
+                  exit={{
+                    opacity: 0,
+                    x: item.pos === "active" ? (direction > 0 ? -300 : 300) : 0,
+                    scale: 0.8,
+                  }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 260,
+                    damping: 26,
+                  }}
+                  className={`absolute w-[85%] md:w-[400px] aspect-3/4 rounded-[2.5rem] overflow-hidden border border-black/5 shadow-2xl
+                    ${item.pos === "prev" ? "hidden lg:block" : ""}
+                    ${item.pos === "next" ? "hidden lg:block" : ""}
+                  `}
+                >
                   <Image
-                    src={activeData.bgImage}
-                    alt="Illustration"
+                    src={item.img}
+                    alt={item.title}
                     fill
-                    className="object-contain object-bottom right-0 opacity-90"
-                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover grayscale-40"
                   />
-                </div>
-              </div>
-            </motion.div>
+
+                  {/* Bottom Text Overlay */}
+                  <div className="absolute inset-0 bg-linear-to-t from-black via-black/20 to-transparent flex flex-col justify-end p-8 md:p-10">
+                    <span className="text-(--red) text-[15px] font-black uppercase tracking-[0.3em] mb-2">
+                      {item.eyebrow}
+                    </span>
+                    <h3 className="text-white text-xl md:text-4xl font-[FormulaBold] tracking-widest uppercase leading-tight">
+                      {item.title}
+                    </h3>
+                  </div>
+                </motion.div>
+              );
+            })}
           </AnimatePresence>
         </div>
 
-        {/* Bottom Line */}
-        <div className="w-full text-center px-4 shrink-0 mt-8">
-          <h1 className="text-2xl md:text-4xl lg:text-5xl font-[Helvetica] text-zinc-800 max-w-5xl mx-auto leading-tight tracking-tight">
-            “So you quit. That’s exactly where Callories changes the game.”
+        {/* --- Pagination Dots --- */}
+        <div className="flex justify-center gap-3 mt-12 md:mt-20">
+          {problems.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => {
+                setDirection(i > index ? 1 : -1);
+                setIndex(i);
+              }}
+              className={`h-1.5 transition-all duration-500 rounded-full ${
+                i === index ? "w-12 bg-(--red)" : "w-3 bg-black/10"
+              }`}
+            />
+          ))}
+        </div>
+
+        {/* --- Bottom Footer Quote --- */}
+        <div className="mt-20 text-center px-4">
+          <h1 className="text-xl md:text-3xl lg:text-4xl font-[Helvetica] text-zinc-500 max-w-4xl mx-auto leading-tight italic">
+            “So you quit. That’s exactly where{" "}
+            <span className="text-(--red) font-[FormulaBold] tracking-widest">
+              Callories
+            </span>{" "}
+            changes the game.”
           </h1>
         </div>
       </div>

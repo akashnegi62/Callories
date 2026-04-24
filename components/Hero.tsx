@@ -187,11 +187,11 @@ export default function Hero() {
         {/* ───────── GHOST TEXT ───────── */}
         <div className="absolute inset-0 z-10 pointer-events-none select-none">
           <div className="absolute top-20 lg:top-[20%] 2xl:top-[8%] left-[4%] text-white/20 font-bold text-[clamp(2rem,5vw,4rem)] lg:text-5xl  2xl:text-[clamp(2rem,5vw,4rem)] leading-[1.1] tracking-tight">
-            Play More
+            Play More.
           </div>
 
           <div className="absolute bottom-20 lg:bottom-[10%] 2xl:bottom-[12%] right-[2%] text-white/20 font-bold text-[clamp(2rem,5vw,4rem)] lg:text-5xl  2xl:text-[clamp(2rem,5vw,4rem)] leading-[1.1] tracking-tight">
-            See <br /> Real Results
+            See <br /> Real Results.
           </div>
         </div>
 

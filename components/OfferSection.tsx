@@ -1,191 +1,156 @@
 "use client";
 
-import React, { useRef, useState, useEffect } from "react";
-import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
-const gridImages = [
-  "/Img/offer.webp",
-  "/Img/play_img1.webp",
-  "/Img/play_img2.webp",
-  "/Img/play_img3.webp",
-  "/Img/play_img4.webp",
-  "/Img/play_img5.webp",
-  "/Img/play_img6.webp", // 7 cards
-  // "/Img/callories_img1.webp",
-  // "/Img/callories_img2.webp",
-  // "/Img/callories_img3.webp",
-  // "/Img/callories_img4.webp",
-  // "/Img/process_img1.webp",
-  // "/Img/process_img2.webp",
-  // "/Img/process_img3.webp",
-  // "/Img/process_img4.webp",
+const offerData = [
+  {
+    title: "General Fitness",
+    sub: "Strength, conditioning & guided workouts",
+    descPoints: ["Build muscle", "Improve endurance", "See real results"],
+    img: "/Img/play_img6.webp",
+  },
+  {
+    title: "Yoga",
+    sub: "Stretch, recover, and build flexibility",
+    descPoints: ["Feel lighter, calmer, and more balanced"],
+    img: "/Img/play_img5.webp",
+  },
+  {
+    title: "Zumba",
+    sub: "Dance your way to fitness",
+    descPoints: ["High-energy fun", "Burn serious calories"],
+    img: "/Img/play_img1.webp",
+  },
+  {
+    title: "Badminton",
+    sub: "Fast-paced, addictive gameplay",
+    descPoints: ["Cardio that doesn’t feel like cardio"],
+    img: "/Img/offer_img2.webp",
+  },
+  {
+    title: "Football",
+    sub: "Team play with high intensity",
+    descPoints: ["Build stamina, agility, and endurance"],
+    img: "/Img/play_img4.webp",
+  },
+  {
+    title: "Cricket",
+    sub: "Familiar, social, and engaging",
+    descPoints: ["Stay active while having fun"],
+    img: "/Img/play_img2.webp",
+  },
+  {
+    title: "Fitness Games",
+    sub: "Circuits, relays & challenges",
+    descPoints: ["Burn fat", "Playful competition", "High-intensity circuits"],
+    img: "/Img/offer.webp",
+  },
 ];
 
-const SCATTER: Record<
-  number,
-  { x: number; y: number; rotate: number; scale: number }
-> = {
-  0: { x: -520, y: -260, rotate: -5, scale: 0.5 },
-  1: { x: -200, y: -300, rotate: 3, scale: 0.4 },
-  2: { x: 0, y: -340, rotate: -2, scale: 0.62 },
-  3: { x: 200, y: -290, rotate: 4, scale: 0.38 },
-  4: { x: 520, y: -260, rotate: -4, scale: 0.45 },
-  5: { x: -520, y: 10, rotate: 4, scale: 0.58 },
-  6: { x: -220, y: 30, rotate: -5, scale: 0.68 },
-  8: { x: 220, y: 20, rotate: 5, scale: 0.7 },
-  9: { x: 520, y: 0, rotate: -3, scale: 0.55 },
-  10: { x: -520, y: 280, rotate: -6, scale: 0.48 },
-  11: { x: -200, y: 300, rotate: 4, scale: 0.42 },
-  12: { x: 0, y: 330, rotate: -3, scale: 0.58 },
-  13: { x: 200, y: 295, rotate: 5, scale: 0.44 },
-  14: { x: 520, y: 280, rotate: -5, scale: 0.5 },
-};
-
-function SurroundingCard({
-  src,
-  index,
-  progress,
-}: {
-  src: string;
-  index: number;
-  progress: MotionValue<number>;
-}) {
-  const { x: sx, y: sy, rotate: sr, scale: ss } = SCATTER[index];
-  const x = useTransform(progress, [0.45, 0.92], [sx, 0]);
-  const y = useTransform(progress, [0.45, 0.92], [sy, 0]);
-  const rotate = useTransform(progress, [0.45, 0.92], [sr, 0]);
-  const scale = useTransform(progress, [0.45, 0.92], [ss, 1]);
-
-  return (
-    <motion.div
-      style={{ x, y, rotate, scale }}
-      className="relative aspect-square rounded-2xl overflow-hidden bg-zinc-300 will-change-transform"
-    >
-      <Image src={src} alt="" fill className="object-cover" sizes="20vw" />
-    </motion.div>
-  );
-}
-
 export default function OfferSection() {
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  const [scaleRange, setScaleRange] = useState([2.6, 2.6, 0.9]);
-
-  // Responsive Scale Detection
-  useEffect(() => {
-    const handleResize = () => {
-      const width = window.innerWidth;
-
-      // 2. Logic for 3-tier scaling
-      if ((width >= 768 && width < 1024) || (width >= 820 && width < 1280)) {
-        // TABLET range
-        setScaleRange([2.6, 2.6, 0.6]);
-      } else {
-        // MOBILE and DESKTOP
-        setScaleRange([2.6, 2.6, 0.9]);
-      }
-    };
-
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"],
-  });
-
-  // ── Animations ──
-  const heroY = useTransform(scrollYProgress, [0, 0.15], ["40vh", "0vh"]);
-  const heroScale = useTransform(
-    scrollYProgress,
-    [0.3, 0.45, 0.92],
-    scaleRange,
-  );
-
-  const gridVisible = useTransform(scrollYProgress, (v) =>
-    v >= 0.44 ? "visible" : "hidden",
-  );
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(0); // Default first one open
 
   return (
-    <section
-      ref={containerRef}
-      className="relative h-[700vh] bg-(--dark-bg) pb-20 md:pb-0 lg:pb-40 2xl:pb-0"
-    >
-      {/* Heading */}
-      <div className="absolute top-0 w-full flex flex-col items-center pt-40 px-6 text-center z-50 pointer-events-none">
-        <h1 className="font-black uppercase text-(--dark-text) leading-[0.9] tracking-tight text-5xl md:text-7xl">
-          Move.{" "}
-          <span className="text-(--red) font-[FormulaBold] tracking-wider">
-            Play
-          </span>
-          . Enjoy.
-        </h1>
-        <p className="mt-5 text-xl text-(--dark-text) font-[Helvetica] leading-relaxed">
-          A weight-neutral program that builds sustainable habits, not quick
-          fixes.
-        </p>
+    <section className="bg-(--dark-bg) py-20 md:py-32 px-4 md:px-6 overflow-hidden min-h-screen flex flex-col items-center justify-center">
+      {/* Header Area */}
+      <div className="max-w-7xl mx-auto w-full mb-12 md:mb-16">
+        <h2 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-[FormulaBold] uppercase text-(--dark-text) tracking-tight md:tracking-widest leading-none lg:-ml-15 text-center lg:text-left">
+          Move.<span className="text-(--red)">Play.</span>Enjoy.
+        </h2>
       </div>
 
-      <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center">
-        {/* --- GRID: Changed to 3 columns for mobile, 5 for desktop --- */}
-        <motion.div
-          style={{ visibility: gridVisible }}
-          className="grid grid-cols-3 md:grid-cols-5 gap-3 w-full max-w-[1300px] px-8"
-        >
-          {gridImages.map((src, index) => {
-            if (index === 7)
-              return (
-                <div
-                  key={index}
-                  className="relative aspect-square rounded-2xl invisible"
-                  aria-hidden
-                />
-              );
-            return (
-              <SurroundingCard
-                key={index}
-                src={src}
-                index={index}
-                progress={scrollYProgress}
+      {/* --- RESPONSIVE EXPANDING ACCORDION --- */}
+      <div className="flex flex-col lg:flex-row gap-3 w-full max-w-[1400px] h-[750px] md:h-[900px] lg:h-[550px]">
+        {offerData.map((item, index) => {
+          const isExpanded = expandedIndex === index;
+
+          return (
+            <motion.div
+              key={index}
+              // Hover for Desktop, Click for Mobile/Tablet
+              onMouseEnter={() => setExpandedIndex(index)}
+              onClick={() => setExpandedIndex(index)}
+              initial={false}
+              animate={{
+                flex: isExpanded ? 5 : 1,
+              }}
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+              className="relative group cursor-pointer overflow-hidden rounded-2xl md:rounded-3xl bg-zinc-900 border border-white/5 shadow-2xl"
+            >
+              {/* Background Image */}
+              <Image
+                src={item.img}
+                alt={item.title}
+                fill
+                className={`object-cover transition-all duration-700 ${
+                  isExpanded
+                    ? "scale-105 opacity-50 grayscale-0"
+                    : "opacity-30 grayscale"
+                }`}
               />
-            );
-          })}
-        </motion.div>
 
-        {/* HERO CARD */}
-        <motion.div
-          className="absolute z-40 will-change-transform"
-          style={{
-            scale: heroScale,
-            y: heroY,
-            width: "clamp(100px, 28vw, 260px)",
-            aspectRatio: "1 / 1",
-          }}
-        >
-          <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl">
-            <Image
-              src={gridImages[0]}
-              alt="Hero"
-              fill
-              className="object-cover object-top"
-              priority
-              sizes="(max-width: 768px) 30vw, 260px"
-            />
+              {/* Gradient Overlay */}
+              <div className="absolute inset-0 bg-linear-to-t from-black via-black/20 to-transparent z-10" />
 
-            <motion.div className="absolute inset-0 flex items-center justify-center p-3">
-              <h2 className="text-(--dark-text) font-[FormulaBold] uppercase text-center leading-[0.88] text-[clamp(1rem,2.3vw,3rem)] md:text-[clamp(2rem,2.6vw,3.5rem)] lg:text-[clamp(2.5rem,3.1vw,4rem)] 2xl:text-[clamp(1.8rem,2.2vw,4rem)] tracking-wider">
-                What
-                <br />
-                We
-                <br />
-                Offer?
-              </h2>
+              {/* 1. TOP CONTENT: Title */}
+              <div className="absolute top-5 left-5 md:top-8 md:left-8 z-20">
+                <div
+                  className={`
+                    ${!isExpanded ? "lg:rotate-90 lg:origin-left lg:mt-24" : ""} 
+                    transition-all duration-500
+                  `}
+                >
+                  <h3
+                    className={`font-[FormulaBold] uppercase tracking-widest text-white leading-none transition-all duration-500 ${
+                      isExpanded
+                        ? "text-2xl md:text-4xl lg:text-5xl"
+                        : "text-lg md:text-xl lg:text-4xl whitespace-nowrap"
+                    }`}
+                  >
+                    {item.title}
+                  </h3>
+                </div>
+              </div>
+
+              {/* 2. BOTTOM CONTENT: Detail */}
+              <div className="absolute bottom-5 left-5 right-5 md:bottom-8 md:left-8 md:right-8 z-20">
+                <AnimatePresence mode="wait">
+                  {isExpanded && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "8vh", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
+                      className="overflow-hidden"
+                    >
+                      <div className="space-y-2 md:space-y-3 pb-4">
+                        <p className="text-white text-sm md:text-lg font-black uppercase tracking-widest leading-tight">
+                          {item.sub}
+                        </p>
+
+                        <div className="flex items-center gap-2 md:gap-3">
+                          <span className="w-1.5 h-1.5 bg-(--red) rounded-full shrink-0" />
+                          <p className="text-(--dark-text) font-[Helvetica] tracking-widest text-[9px] md:text-xs uppercase font-bold leading-none">
+                            {item.descPoints.join(", ")}
+                          </p>
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+
+                {/* Marker logic - Hidden when expanded */}
+                <motion.div
+                  animate={{ opacity: isExpanded ? 0 : 1 }}
+                  transition={{ duration: 0.3 }}
+                  className="w-16 md:w-30 h-[.5px] bg-white/20 rounded-full"
+                />
+              </div>
             </motion.div>
-          </div>
-        </motion.div>
+          );
+        })}
       </div>
     </section>
   );
