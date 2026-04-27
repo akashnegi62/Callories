@@ -74,7 +74,7 @@ export default function OfferSection() {
     <section className="bg-(--dark-bg) py-20 md:py-32 px-4 md:px-6 overflow-hidden min-h-screen flex flex-col items-center justify-center">
       {/* Header Area */}
       <div className="max-w-7xl mx-auto w-full mb-10 md:mb-16">
-        <h2 className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-[FormulaBold] uppercase text-(--dark-text) tracking-tight md:tracking-widest leading-none lg:-ml-15 text-center lg:text-left">
+        <h2 className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-[FormulaBold] uppercase text-(--dark-text) tracking-tight md:tracking-widest leading-none text-center lg:text-left">
           Move.<span className="text-(--red)">Play.</span>Enjoy.
         </h2>
       </div>

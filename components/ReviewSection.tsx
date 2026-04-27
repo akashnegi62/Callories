@@ -1,14 +1,15 @@
 "use client";
 
-import React from "react";
+import React, { useRef } from "react";
 import Image from "next/image";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa6"; // Using react-icons like your other components
 
 const reviewsData = [
   {
     id: 1,
     beforeImg: "/Img/process_img1.webp",
     afterImg: "/Img/process_img2.webp",
-    videoUrl: "/hero-video.mp4", // Add your video paths here
+    videoUrl: "/hero-video.mp4",
   },
   {
     id: 2,
@@ -25,6 +26,25 @@ const reviewsData = [
 ];
 
 export default function ReviewSection() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  // --- Scroll Logic ---
+  const scroll = (direction: "left" | "right") => {
+    if (scrollRef.current) {
+      const { scrollLeft, clientWidth } = scrollRef.current;
+      // Scroll by the width of one visible area
+      const scrollTo =
+        direction === "left"
+          ? scrollLeft - clientWidth
+          : scrollLeft + clientWidth;
+
+      scrollRef.current.scrollTo({
+        left: scrollTo,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
     <section
       id="results"
@@ -40,20 +60,37 @@ export default function ReviewSection() {
       />
 
       {/* Header Area */}
-      <div className="max-w-[1400px] mx-auto px-6 mb-16 relative flex flex-col items-center">
-        <div className="flex items-center gap-2 mb-4">
-          <span className="w-2.5 h-2.5 bg-(--red) rounded-full animate-pulse"></span>
-          <span className="text-xs font-[Helvetica] uppercase tracking-widest text-(--dark-text)">
-            Real Results
-          </span>
+      <div className="max-w-[1400px] mx-auto px-6 mb-16 relative flex flex-col md:flex-row items-end justify-between gap-8">
+        <div className="flex flex-col items-center md:items-start w-full">
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-[FormulaBold] uppercase tracking-widest leading-[0.9] text-(--dark-text)">
+            TRANSFORMATIONS
+          </h2>
         </div>
-        <h2 className="text-5xl md:text-6xl lg:text-7xl font-[FormulaBold] uppercase tracking-widest text-center leading-[0.9] text-(--dark-text)">
-          TRANSFORMATIONS
-        </h2>
+
+        {/* Navigation Buttons */}
+        <div className="flex gap-4 z-20">
+          <button
+            onClick={() => scroll("left")}
+            className="w-12 h-12 md:w-14 md:h-14 rounded-full border border-white/10 bg-white/5 backdrop-blur-md flex items-center justify-center text-white hover:bg-(--red) hover:border-(--red) transition-all duration-300"
+            aria-label="Previous"
+          >
+            <FaChevronLeft size={20} />
+          </button>
+          <button
+            onClick={() => scroll("right")}
+            className="w-12 h-12 md:w-14 md:h-14 rounded-full border border-white/10 bg-white/5 backdrop-blur-md flex items-center justify-center text-white hover:bg-(--red) hover:border-(--red) transition-all duration-300"
+            aria-label="Next"
+          >
+            <FaChevronRight size={20} />
+          </button>
+        </div>
       </div>
 
       {/* Carousel */}
-      <div className="flex gap-4 md:gap-5 lg:gap-6 overflow-x-auto px-6 pb-12 snap-x snap-mandatory hide-scrollbar cursor-grab active:cursor-grabbing">
+      <div
+        ref={scrollRef}
+        className="flex gap-4 md:gap-5 lg:gap-6 overflow-x-auto px-6 pb-12 snap-x snap-mandatory hide-scrollbar cursor-grab active:cursor-grabbing scroll-smooth"
+      >
         {reviewsData.map((review) => (
           <React.Fragment key={review.id}>
             {/* 1. Image Card (Before/After) */}
@@ -61,7 +98,7 @@ export default function ReviewSection() {
               <div className="w-1/2 h-full relative group">
                 <Image
                   src={review.beforeImg}
-                  alt={`author before`}
+                  alt={`before transformation`}
                   fill
                   className="object-cover grayscale-30"
                 />
@@ -75,7 +112,7 @@ export default function ReviewSection() {
               <div className="w-1/2 h-full relative">
                 <Image
                   src={review.afterImg}
-                  alt={`author after`}
+                  alt={`after transformation`}
                   fill
                   className="object-cover"
                 />
@@ -97,10 +134,7 @@ export default function ReviewSection() {
                 playsInline
                 className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500"
               />
-
-              {/* Overlay with Author Name */}
               <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
-              <div className="absolute bottom-8 left-8"></div>
             </div>
           </React.Fragment>
         ))}
