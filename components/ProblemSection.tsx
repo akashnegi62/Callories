@@ -2,30 +2,30 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import { FaHandshakeAngle } from "react-icons/fa6";
 import {
-  FaBatteryQuarter,
-  FaClockRotateLeft,
-  FaAppleWhole,
-  FaHandshakeAngle,
-  FaChartLine,
-} from "react-icons/fa6";
+  PiBatteryHighFill,
+  PiArrowCounterClockwiseFill,
+  PiChartLine,
+} from "react-icons/pi";
+import { IoIosNutrition } from "react-icons/io";
 
 const problems = [
   {
     id: 1,
-    icon: <FaBatteryQuarter />,
+    icon: <PiBatteryHighFill />,
     eyebrow: "MOTIVATION",
     title: "You start strong… then lose motivation",
   },
   {
     id: 2,
-    icon: <FaClockRotateLeft />,
+    icon: <PiArrowCounterClockwiseFill />,
     eyebrow: "ROUTINE",
     title: "Workouts feel boring and repetitive",
   },
   {
     id: 3,
-    icon: <FaAppleWhole />,
+    icon: <IoIosNutrition />,
     eyebrow: "NUTRITION",
     title: "Diets are too strict to follow long term",
   },
@@ -37,7 +37,7 @@ const problems = [
   },
   {
     id: 5,
-    icon: <FaChartLine />,
+    icon: <PiChartLine />,
     eyebrow: "OUTCOME",
     title: "No results quickly, so you give up",
   },
