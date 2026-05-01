@@ -70,7 +70,7 @@ export default function Hero() {
           className="absolute top-[15%] md:top-[16%] lg:top-[15%] left-0 right-0 z-40 flex justify-center px-6 pointer-events-none"
         >
           <div className="text-white/40 text-sm md:text-base lg:text- font-bold 2xl:text-md">
-            Trusted by 1000+ members across Smash2play venues.
+            Trusted by 50,000 member across Smash2play venues.
           </div>
         </motion.div>
 
@@ -153,7 +153,7 @@ export default function Hero() {
             animate={{ x: ["0%", "-50%"] }}
             transition={{
               repeat: Infinity,
-              duration: 22,
+              duration: 50,
               ease: "linear",
             }}
           >
@@ -162,14 +162,16 @@ export default function Hero() {
                 key={i}
                 className="hero-text mx-[3vw] font-black"
                 style={{
-                  fontSize: "clamp(5rem, 18vw, 22rem)",
+                  fontSize: "clamp(3rem, 12vw, 14rem)",
                   letterSpacing: "-0.04em",
                   lineHeight: 0.85,
                   color: "#ffffff",
                   mixBlendMode: "difference",
                 }}
               >
-                Get Fit Together
+                Get Fit Together.&nbsp; &nbsp;
+                <span className="text-(--red)">Play More.</span>&nbsp; &nbsp;
+                See Real Results.
               </span>
             ))}
           </motion.div>
@@ -179,19 +181,19 @@ export default function Hero() {
         <motion.div className="hidden md:block lg:block 2xl:block absolute top-[82%] left-1/2 -translate-x-1/2 w-full max-w-3xl md:max-w-sm lg:max-w-xl 2xl:max-w-3xl px-6 z-40 text-center md:text-left lg:text-center pointer-events-none">
           <h1 className="text-white/70 text-sm md:text-base lg:text-lg leading-relaxed font-medium tracking-wide">
             Lose or gain weight through sports, fitness, yoga & expert coaching
-            — with personalized diet plans, mindset support, and a community
-            that keeps you consistent.
+            — with personalized diet plans, personal psychologist, and a
+            community that keeps you consistent.
           </h1>
         </motion.div>
 
         {/* ───────── GHOST TEXT ───────── */}
         <div className="absolute inset-0 z-10 pointer-events-none select-none">
           <div className="absolute top-20 lg:top-[20%] 2xl:top-[8%] left-[4%] text-white/20 font-bold text-[clamp(2rem,5vw,4rem)] lg:text-5xl  2xl:text-[clamp(2rem,5vw,4rem)] leading-[1.1] tracking-tight">
-            Play More.
+            Weight loss.
           </div>
 
           <div className="absolute bottom-20 lg:bottom-[10%] 2xl:bottom-[12%] right-[2%] text-white/20 font-bold text-[clamp(2rem,5vw,4rem)] lg:text-5xl  2xl:text-[clamp(2rem,5vw,4rem)] leading-[1.1] tracking-tight">
-            See <br /> Real Results.
+            5 day/week <br /> offline course.
           </div>
         </div>
 

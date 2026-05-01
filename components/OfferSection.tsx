@@ -48,6 +48,26 @@ const offerData = [
     img: "/Img/play_img2.webp",
   },
   {
+    title: "Tabata",
+    sub: "HIIT workouts for fat burn",
+    tag: "Burn calories without feeling like a workout",
+    descPoints: [
+      "HIIT workouts for fat burn",
+      "High intensity interval training",
+    ],
+    img: "/Img/play_img7.webp",
+  },
+  {
+    title: "Pickleball",
+    sub: "HIIT workouts for fat burn",
+    tag: "Burn calories without feeling like a workout",
+    descPoints: [
+      "HIIT workouts for fat burn",
+      "High intensity interval training",
+    ],
+    img: "/Img/play_img8.webp",
+  },
+  {
     title: "Fitness Games",
     sub: "Circuits, relays & challenges",
     tag: "Burn calories without feeling like a workout",

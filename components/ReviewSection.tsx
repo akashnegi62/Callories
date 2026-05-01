@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import Image from "next/image";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa6"; // Using react-icons like your other components
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
 
 const reviewsData = [
   {
@@ -28,11 +28,15 @@ const reviewsData = [
 export default function ReviewSection() {
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  // --- Scroll Logic ---
+  // Grab-to-scroll state
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+
+  // --- Button Scroll Logic ---
   const scroll = (direction: "left" | "right") => {
     if (scrollRef.current) {
       const { scrollLeft, clientWidth } = scrollRef.current;
-      // Scroll by the width of one visible area
       const scrollTo =
         direction === "left"
           ? scrollLeft - clientWidth
@@ -43,6 +47,33 @@ export default function ReviewSection() {
         behavior: "smooth",
       });
     }
+  };
+
+  // --- Grab-to-Scroll Event Handlers ---
+  const handleMouseDown = (e: React.MouseEvent) => {
+    if (!scrollRef.current) return;
+    setIsDragging(true);
+    // Calculate initial click position and current scroll offset
+    setStartX(e.pageX - scrollRef.current.offsetLeft);
+    setScrollLeft(scrollRef.current.scrollLeft);
+  };
+
+  const handleMouseLeave = () => {
+    setIsDragging(false);
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging || !scrollRef.current) return;
+    e.preventDefault();
+
+    // Calculate distance moved
+    const x = e.pageX - scrollRef.current.offsetLeft;
+    const walk = (x - startX) * 2; // Multiplier adjusts scroll speed
+    scrollRef.current.scrollLeft = scrollLeft - walk;
   };
 
   return (
@@ -86,24 +117,29 @@ export default function ReviewSection() {
         </div>
       </div>
 
-      {/* Carousel */}
+      {/* Carousel Container */}
       <div
         ref={scrollRef}
-        className="flex gap-4 md:gap-5 lg:gap-6 overflow-x-auto px-6 pb-12 snap-x snap-mandatory hide-scrollbar cursor-grab active:cursor-grabbing scroll-smooth"
+        onMouseDown={handleMouseDown}
+        onMouseLeave={handleMouseLeave}
+        onMouseUp={handleMouseUp}
+        onMouseMove={handleMouseMove}
+        className={`flex gap-4 md:gap-5 lg:gap-6 overflow-x-auto px-6 pb-12 snap-x snap-mandatory hide-scrollbar select-none
+          ${isDragging ? "cursor-grabbing scroll-auto" : "cursor-grab scroll-smooth"}`}
       >
         {reviewsData.map((review) => (
           <React.Fragment key={review.id}>
-            {/* 1. Image Card (Before/After) */}
-            <div className="shrink-0 w-[85vw] sm:w-[320px] md:w-[350px] lg:w-[400px] aspect-4/5 rounded-4xl md:rounded-[2.5rem] overflow-hidden flex gap-1 snap-center bg-black/20">
-              <div className="w-1/2 h-full relative group">
+            {/* Image Card (Before/After) */}
+            <div className="shrink-0 w-[85vw] sm:w-[320px] md:w-[350px] lg:w-[400px] aspect-4/5 rounded-4xl md:rounded-[2.5rem] overflow-hidden flex gap-1 snap-center bg-black/20 pointer-events-none">
+              <div className="w-1/2 h-full relative">
                 <Image
                   src={review.beforeImg}
-                  alt={`before transformation`}
+                  alt={`before`}
                   fill
                   className="object-cover grayscale-30"
                 />
                 <div className="absolute top-4 left-4 z-10">
-                  <span className="px-3 py-1 bg-black/40 backdrop-blur-md border border-white/10 rounded-full text-[10px] font-black uppercase tracking-widest text-white shadow-xl">
+                  <span className="px-3 py-1 bg-black/40 backdrop-blur-md border border-white/10 rounded-full text-[10px] font-black uppercase tracking-widest text-white">
                     Before
                   </span>
                 </div>
@@ -112,35 +148,35 @@ export default function ReviewSection() {
               <div className="w-1/2 h-full relative">
                 <Image
                   src={review.afterImg}
-                  alt={`after transformation`}
+                  alt={`after`}
                   fill
                   className="object-cover"
                 />
                 <div className="absolute top-4 right-4 z-10">
-                  <span className="px-3 py-1 bg-(--red) rounded-full text-[10px] font-black uppercase tracking-widest text-white shadow-lg">
+                  <span className="px-3 py-1 bg-(--red) rounded-full text-[10px] font-black uppercase tracking-widest text-white">
                     After
                   </span>
                 </div>
               </div>
             </div>
 
-            {/* 2. VIDEO Review Card */}
-            <div className="shrink-0 w-[85vw] sm:w-[320px] md:w-[350px] lg:w-[400px] aspect-4/5 rounded-4xl md:rounded-[2.5rem] bg-black overflow-hidden relative group snap-center">
+            {/* VIDEO Review Card */}
+            <div className="shrink-0 w-[85vw] sm:w-[320px] md:w-[350px] lg:w-[400px] aspect-4/5 rounded-4xl md:rounded-[2.5rem] bg-black overflow-hidden relative snap-center pointer-events-none">
               <video
                 src={review.videoUrl}
                 autoPlay
                 muted
                 loop
                 playsInline
-                className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500"
+                className="w-full h-full object-cover opacity-80"
               />
-              <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent" />
             </div>
           </React.Fragment>
         ))}
       </div>
 
-      {/* Bottom Text Anchor */}
+      {/* Bottom Text */}
       <div className="mt-12 px-6 flex justify-center text-center">
         <div className="max-w-3xl space-y-4">
           <p className="text-2xl md:text-3xl font-[FormulaBold] uppercase tracking-widest text-(--dark-text) leading-none">

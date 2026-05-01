@@ -63,8 +63,12 @@ export default function SolutionSection() {
             <span className="text-(--red) font-[FormulaBold] tracking-wider">
               A smarter, more enjoyable way to get fit
             </span>{" "}
-            — combining play, science, and community
+            — combining play, science, and community.
           </h2>
+
+          <p className="font-[Helvetica] text-(--white) text-xl md:text-2xl mt-10">
+            &quot;5 day offline session/week&quot;
+          </p>
         </motion.div>
 
         <div className="space-y-40 md:space-y-64">
@@ -87,7 +91,7 @@ export default function SolutionSection() {
                   className="w-full md:w-1/2 space-y-10"
                 >
                   {/* High-Impact Title */}
-                  <h3 className="text-5xl md:text-7xl font-[FormulaBold] uppercase tracking-wide leading-[0.9] max-w-md">
+                  <h3 className="text-5xl md:text-8xl font-[FormulaBold] uppercase tracking-wide leading-[0.9] max-w-md">
                     {item.title}
                   </h3>
 
@@ -96,7 +100,7 @@ export default function SolutionSection() {
                     {item.points.map((point, pIdx) => (
                       <div key={pIdx} className="flex items-start gap-4">
                         <span className="w-2 h-2 bg-(--red) rounded-full mt-2 shrink-0" />
-                        <span className="text-sm md:text-base font-bold uppercase tracking-widest leading-snug max-w-sm">
+                        <span className="text-sm md:text-lg font-bold uppercase tracking-widest leading-snug max-w-sm">
                           {point}
                         </span>
                       </div>
@@ -112,7 +116,7 @@ export default function SolutionSection() {
                   transition={{ duration: 0.8 }}
                   className="w-full md:w-1/2 relative group"
                 >
-                  <div className="relative aspect-4/5 md:aspect-4/5 rounded-[2.5rem] md:rounded-[3.5rem] overflow-hidden shadow-2xl">
+                  <div className="relative aspect-4/5 md:aspect-4/5 lg:aspect-4/3 rounded-[2.5rem] md:rounded-[3.5rem] overflow-hidden shadow-2xl">
                     <Image
                       src={item.imageUrl}
                       alt={item.title}

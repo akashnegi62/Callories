@@ -1,78 +1,54 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import Image from "next/image";
+import React from "react";
+import { motion } from "framer-motion";
+import {
+  FaBatteryQuarter,
+  FaClockRotateLeft,
+  FaAppleWhole,
+  FaHandshakeAngle,
+  FaChartLine,
+} from "react-icons/fa6";
 
 const problems = [
   {
     id: 1,
+    icon: <FaBatteryQuarter />,
     eyebrow: "MOTIVATION",
     title: "You start strong… then lose motivation",
-    img: "/Img/callories_img1.webp",
   },
   {
     id: 2,
+    icon: <FaClockRotateLeft />,
     eyebrow: "ROUTINE",
     title: "Workouts feel boring and repetitive",
-    img: "/Img/callories_img2.webp",
   },
   {
     id: 3,
+    icon: <FaAppleWhole />,
     eyebrow: "NUTRITION",
     title: "Diets are too strict to follow long term",
-    img: "/Img/callories_img3.webp",
   },
   {
     id: 4,
+    icon: <FaHandshakeAngle />,
     eyebrow: "SUPPORT",
     title: "No one keeps you truly accountable",
-    img: "/Img/callories_img4.webp",
   },
   {
     id: 5,
+    icon: <FaChartLine />,
     eyebrow: "OUTCOME",
     title: "No results quickly, so you give up",
-    img: "/Img/motivation_img1.webp",
   },
 ];
 
 export default function ProblemSection() {
-  const [index, setIndex] = useState(0);
-  const [direction, setDirection] = useState(0);
-
-  // --- Auto Swipe ---
-  useEffect(() => {
-    const timer = setInterval(() => {
-      // eslint-disable-next-line react-hooks/immutability
-      nextStep();
-    }, 2000);
-    return () => clearInterval(timer);
-  }, [index]);
-
-  const nextStep = () => {
-    setDirection(1);
-    setIndex((prev) => (prev + 1) % problems.length);
-  };
-
-  const getVisibleIndices = () => {
-    const prev = (index - 1 + problems.length) % problems.length;
-    const next = (index + 1) % problems.length;
-    return { prev, active: index, next };
-  };
-
-  const { prev, active, next } = getVisibleIndices();
-  const visibleItems = [
-    { ...problems[prev], pos: "prev" },
-    { ...problems[active], pos: "active" },
-    { ...problems[next], pos: "next" },
-  ];
-
   return (
-    <section className="bg-(--white-bg) py-24 md:py-32 overflow-hidden flex flex-col items-center">
-      <div className="max-w-7xl mx-auto px-6 w-full">
-        {/* --- Heading --- */}
-        <div className="text-center mb-16 md:mb-24">
+    <section className="bg-(--white-bg) py-24 md:py-32 px-6 font-sans overflow-hidden">
+      <div className="max-w-7xl mx-auto">
+        {/* --- Header Section --- */}
+        <div className="text-center mb-20 md:mb-28">
           <h2 className="text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter text-(--white-text) leading-[0.85]">
             Why Most People <br />
             <span className="text-(--red) text-5xl md:text-7xl lg:text-8xl font-[FormulaBold] tracking-widest">
@@ -81,91 +57,43 @@ export default function ProblemSection() {
           </h2>
         </div>
 
-        {/* --- Carousel Display --- */}
-        <div className="relative flex justify-center items-center h-[450px] md:h-[550px] w-full">
-          <AnimatePresence mode="popLayout" initial={false}>
-            {visibleItems.map((item) => {
-              const isCenter = item.pos === "active";
+        {/* --- Grid Section --- */}
+        {/* Using a 3-column grid that handles the 5 items elegantly */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {problems.map((item, idx) => (
+            <motion.div
+              key={item.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.1, duration: 0.6 }}
+              className="group p-10 rounded-[2.5rem] bg-(--dark-bg) hover:border-(--red)/50 transition-all duration-500 flex flex-col h-full shadow-2xl"
+            >
+              {/* Icon Container */}
+              <div className="w-16 h-16 rounded-2xl bg-zinc-800 flex items-center justify-center text-3xl text-(--red) mb-10 group-hover:scale-110 group-hover:bg-(--red) group-hover:text-white transition-all duration-500">
+                {item.icon}
+              </div>
 
-              return (
-                <motion.div
-                  key={`${item.id}-${item.pos}`}
-                  initial={{
-                    opacity: 0,
-                    x:
-                      item.pos === "next"
-                        ? 300
-                        : item.pos === "prev"
-                          ? -300
-                          : 0,
-                    scale: 0.8,
-                  }}
-                  animate={{
-                    opacity: isCenter ? 1 : 0.3,
-                    x:
-                      item.pos === "next"
-                        ? "110%"
-                        : item.pos === "prev"
-                          ? "-110%"
-                          : "0%",
-                    scale: isCenter ? 1.1 : 0.85,
-                    zIndex: isCenter ? 20 : 10,
-                  }}
-                  exit={{
-                    opacity: 0,
-                    x: item.pos === "active" ? (direction > 0 ? -300 : 300) : 0,
-                    scale: 0.8,
-                  }}
-                  transition={{
-                    type: "spring",
-                    stiffness: 260,
-                    damping: 26,
-                  }}
-                  className={`absolute w-[85%] md:w-[400px] aspect-3/4 rounded-[2.5rem] overflow-hidden border border-black/5 shadow-2xl
-                    ${item.pos === "prev" ? "hidden lg:block" : ""}
-                    ${item.pos === "next" ? "hidden lg:block" : ""}
-                  `}
-                >
-                  <Image
-                    src={item.img}
-                    alt={item.title}
-                    fill
-                    className="object-cover grayscale-40"
-                  />
+              {/* Eyebrow (Small Title) */}
+              <span className="text-(--red) text-xs font-black uppercase tracking-[0.4em] mb-4">
+                {item.eyebrow}
+              </span>
 
-                  {/* Bottom Text Overlay */}
-                  <div className="absolute inset-0 bg-linear-to-t from-black via-black/20 to-transparent flex flex-col justify-end p-8 md:p-10">
-                    <span className="text-(--red) text-[15px] font-black uppercase tracking-[0.3em] mb-2">
-                      {item.eyebrow}
-                    </span>
-                    <h3 className="text-white text-xl md:text-4xl font-[FormulaBold] tracking-widest uppercase leading-tight">
-                      {item.title}
-                    </h3>
-                  </div>
-                </motion.div>
-              );
-            })}
-          </AnimatePresence>
-        </div>
+              {/* Main Text Content */}
+              <h3 className="text-2xl md:text-3xl text-white font-[FormulaBold] uppercase tracking-widest leading-tight mb-6">
+                {item.title}
+              </h3>
 
-        {/* --- Pagination Dots --- */}
-        <div className="flex justify-center gap-3 mt-12 md:mt-20">
-          {problems.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => {
-                setDirection(i > index ? 1 : -1);
-                setIndex(i);
-              }}
-              className={`h-1.5 transition-all duration-500 rounded-full ${
-                i === index ? "w-12 bg-(--red)" : "w-3 bg-black/10"
-              }`}
-            />
+              {/* Bottom Decorative Line (Reference Design) */}
+              <div className="mt-auto pt-8">
+                <div className="w-12 group-hover:w-full h-px bg-(--red) transition-all duration-700 opacity-50 group-hover:opacity-100"></div>
+              </div>
+            </motion.div>
           ))}
         </div>
 
         {/* --- Bottom Footer Quote --- */}
-        <div className="mt-20 text-center px-4">
+        <div className="mt-24 text-center px-4">
           <h1 className="text-xl md:text-3xl lg:text-4xl font-[Helvetica] text-zinc-500 max-w-4xl mx-auto leading-tight italic">
             “So you quit. That’s exactly where{" "}
             <span className="text-(--red) font-[FormulaBold] tracking-widest">
