@@ -94,7 +94,7 @@ export default function OfferSection() {
     <section className="bg-(--dark-bg) py-20 md:py-32 px-4 md:px-6 overflow-hidden min-h-screen flex flex-col items-center justify-center">
       {/* Header Area */}
       <div className="max-w-7xl mx-auto w-full mb-10 md:mb-16">
-        <h2 className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-[FormulaBold] uppercase text-(--dark-text) tracking-tight md:tracking-widest leading-none text-center lg:text-left">
+        <h2 className="text-5xl md:text-7xl lg:text-8xl font-[FormulaBold] uppercase text-(--dark-text) tracking-widest leading-none text-center lg:text-left">
           Move.<span className="text-(--red)">Play.</span>Enjoy.
         </h2>
       </div>
@@ -137,8 +137,8 @@ export default function OfferSection() {
                   <h3
                     className={`font-[FormulaBold] uppercase tracking-widest text-white leading-none ${
                       isExpanded
-                        ? "text-2xl md:text-4xl lg:text-5xl"
-                        : "text-lg md:text-xl lg:text-4xl whitespace-nowrap"
+                        ? "text-3xl md:text-4xl lg:text-5xl"
+                        : "text-xl md:text-xl lg:text-4xl whitespace-nowrap"
                     }`}
                   >
                     {item.title}
@@ -162,19 +162,19 @@ export default function OfferSection() {
                       className="overflow-hidden"
                     >
                       <div className="space-y-3 md:space-y-4 pb-4">
-                        <p className="text-white text-xs md:text-lg font-black uppercase tracking-widest leading-tight">
+                        <p className="text-white text-sm md:text-lg font-black uppercase tracking-widest leading-tight">
                           {item.sub}
                         </p>
 
                         <div className="flex items-center gap-2 md:gap-3">
                           <span className="w-1.5 h-1.5 bg-(--red) rounded-full shrink-0" />
-                          <p className="text-(--dark-text) font-[Helvetica] tracking-widest text-[9px] md:text-xs uppercase font-bold leading-none">
+                          <p className="text-(--dark-text) font-[Helvetica] tracking-widest text-xs md:text-xs uppercase font-bold leading-none">
                             {item.descPoints.join(", ")}
                           </p>
                         </div>
 
                         <div className="pt-2">
-                          <p className="text-(--red) italic text-[9px] md:text-xs font-black uppercase tracking-[0.2em] leading-tight">
+                          <p className="text-(--red) italic text-xs md:text-xs font-black uppercase tracking-[0.2em] leading-tight">
                             &quot;{item.tag}&quot;
                           </p>
                         </div>
