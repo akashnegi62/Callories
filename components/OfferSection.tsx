@@ -154,7 +154,7 @@ export default function OfferSection() {
                       initial={{ height: 0, opacity: 0 }}
                       // --- Dynamic Height Applied Here ---
                       animate={{
-                        height: isDesktop ? "20vh" : "auto",
+                        height: isDesktop ? "22vh" : "auto",
                         opacity: 1,
                       }}
                       exit={{ height: 0, opacity: 0 }}
