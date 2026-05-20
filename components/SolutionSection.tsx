@@ -21,7 +21,7 @@ const solutions = [
       "Badminton, football, cricket, yoga, zumba & fun fitness games",
       "Burn calories without feeling like a workout",
     ],
-    imageUrl: "/Img/offer_img2.webp",
+    imageUrl: "/Img/football.jpeg",
     imageTag: "Active Play",
   },
   {
