@@ -7,21 +7,21 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
 const reviewsData = [
   {
     id: 1,
-    beforeImg: "/Img/process_img1.webp",
-    afterImg: "/Img/process_img2.webp",
-    videoUrl: "/hero-video.mp4",
+    beforeImg: "/Img/userbefore.webp",
+    afterImg: "/Img/userafter.webp",
+    videoUrl: "/user.mp4",
   },
   {
     id: 2,
-    beforeImg: "/Img/process_img3.webp",
-    afterImg: "/Img/process_img4.webp",
-    videoUrl: "/hero-video.mp4",
+    beforeImg: "/Img/userbefore.webp",
+    afterImg: "/Img/userafter.webp",
+    videoUrl: "/user.mp4",
   },
   {
     id: 3,
-    beforeImg: "/Img/callories_img1.webp",
-    afterImg: "/Img/callories_img2.webp",
-    videoUrl: "/hero-video.mp4",
+    beforeImg: "/Img/userbefore.webp",
+    afterImg: "/Img/userafter.webp",
+    videoUrl: "/user.mp4",
   },
 ];
 
@@ -130,7 +130,7 @@ export default function ReviewSection() {
         {reviewsData.map((review) => (
           <React.Fragment key={review.id}>
             {/* Image Card (Before/After) */}
-            <div className="shrink-0 w-[85vw] sm:w-[320px] md:w-[350px] lg:w-[400px] aspect-4/5 rounded-4xl md:rounded-[2.5rem] overflow-hidden flex gap-1 snap-center bg-black/20 pointer-events-none">
+            <div className="shrink-0 w-[85vw] sm:w-[320px] md:w-87.5 lg:w-100 aspect-4/5 rounded-4xl md:rounded-[2.5rem] overflow-hidden flex gap-1 snap-center bg-black/20 pointer-events-none">
               <div className="w-1/2 h-full relative">
                 <Image
                   src={review.beforeImg}

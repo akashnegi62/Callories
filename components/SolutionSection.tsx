@@ -39,7 +39,7 @@ const solutions = [
       "A supportive community, events & group energy",
       "Stay consistent because you’re not doing it alone",
     ],
-    imageUrl: "/Img/offer_img4.webp",
+    imageUrl: "/Img/belong.jpeg",
     imageTag: "Lifelong Support",
   },
 ];

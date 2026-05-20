@@ -38,7 +38,7 @@ const offerData = [
     sub: "Team play with high intensity",
     tag: "Burn calories without feeling like a workout",
     descPoints: ["Build stamina, agility, and endurance"],
-    img: "/Img/play_img4.webp",
+    img: "/Img/football.jpeg",
   },
   {
     title: "Cricket",
