@@ -93,7 +93,7 @@ export default function Hero() {
               muted
               loop
               playsInline
-              src="/hero-video.mp4"
+              src="/hero.mp4"
             />
           </motion.div>
         </div>
