@@ -5,6 +5,9 @@ import { motion } from "framer-motion";
 
 
 export default function TrialSection() {
+  const coachLink = process.env.NEXT_PUBLIC_COACH_LINK;
+  const trialLink = process.env.NEXT_PUBLIC_TRIAL_LINK || "#pricing";
+
   return (
     <section className="bg-(--white-bg) text-(--white-text) py-32 pb-48 px-6 md:px-12 font-sans overflow-hidden">
       <div className="max-w-7xl mx-auto">
@@ -28,26 +31,30 @@ export default function TrialSection() {
         {/* --- Dual Button Container --- */}
         <div className="flex items-center gap-6 justify-center">
           {/* Gray Small Button: Talk to Coach */}
-          <motion.button
+          <motion.a
+            href={coachLink}
+            target="_blank"
+            rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="w-32 h-32  md:w-30 md:h-30 lg:w-40 lg:h-40 2xl:w-40 2xl:h-40 bg-(--dark-bg) rounded-full flex items-center justify-center text-center p-4 shadow-xl group"
+            className="w-32 h-32  md:w-30 md:h-30 lg:w-40 lg:h-40 2xl:w-40 2xl:h-40 bg-(--dark-bg) rounded-full flex items-center justify-center text-center p-4 shadow-xl group cursor-pointer"
           >
             <span className="text-[10px] md:text-xs font-black uppercase tracking-widest leading-tight text-(--white-bg) group-hover:text-(--red) transition-colors">
               Talk to <br /> coach
             </span>
-          </motion.button>
+          </motion.a>
 
           {/* Orange Main Button: Start Free Trial */}
-          <motion.button
+          <motion.a
+            href={trialLink}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="w-44 h-44 md:w-40 md:h-40 lg:w-56 lg:h-56 2xl:w-56 2xl:h-56 bg-(--red) rounded-full flex items-center justify-center text-center p-6 shadow-[0_20px_50px_rgba(230,0,11,0.3)]"
+            className="w-44 h-44 md:w-40 md:h-40 lg:w-56 lg:h-56 2xl:w-56 2xl:h-56 bg-(--red) rounded-full flex items-center justify-center text-center p-6 shadow-[0_20px_50px_rgba(230,0,11,0.3)] cursor-pointer"
           >
             <span className="text-sm md:text-lg text-(--dark-text) font-black uppercase leading-tight tracking-tight">
               Start free <br /> trial [+]
             </span>
-          </motion.button>
+          </motion.a>
         </div>
       </div>
     </section>

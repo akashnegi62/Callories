@@ -12,7 +12,7 @@ const solutions = [
       "Personal dietician plan",
       "1:1 mindset & psychology support",
     ],
-    imageUrl: "/Img/offer_img1.webp",
+    imageUrl: "/Img/person.webp",
     imageTag: "1-on-1 coaching",
   },
   {
@@ -30,7 +30,7 @@ const solutions = [
       "Structured fitness, strength & expert coaching",
       "Designed for real, visible results",
     ],
-    imageUrl: "/Img/offer_img3.webp",
+    imageUrl: "/Img/train.webp",
     imageTag: "Pro Training",
   },
   {

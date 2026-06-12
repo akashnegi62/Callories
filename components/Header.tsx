@@ -28,6 +28,12 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { scrollY } = useScroll();
 
+  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER;
+  const whatsappLink = `https://wa.me/${whatsappNumber}`;
+  const phoneNumber = process.env.NEXT_PUBLIC_PHONE_NUMBER;
+  const phoneLink = `tel:${phoneNumber}`;
+  const trialLink = process.env.NEXT_PUBLIC_TRIAL_LINK || "#pricing";
+
   // --- Scroll Logic: Hide on scroll down, show on scroll up ---
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious() ?? 0;
@@ -75,7 +81,7 @@ export default function Header() {
                       hover: { scaleX: 1 },
                     }}
                     transition={{ duration: 0.3, ease: "easeInOut" }}
-                    className="absolute bottom-0 left-0 right-0 h-[2px] bg-(--red) origin-center"
+                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-(--red) origin-center"
                   />
                 </motion.div>
               </Link>
@@ -88,6 +94,9 @@ export default function Header() {
               fillColor="bg-white"
               hoverTextColor="group-hover:text-black"
               className="border-zinc-800"
+              href={whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <FaWhatsapp className="text-lg" />
               WhatsApp
@@ -97,6 +106,7 @@ export default function Header() {
               fillColor="bg-(--red)"
               hoverTextColor="group-hover:text-white"
               className="border-(--red) bg-(--red)/10"
+              href={trialLink}
             >
               Start Free Trial
             </FillButton>
@@ -146,21 +156,21 @@ export default function Header() {
       <div className="fixed bottom-8 right-6 flex flex-col gap-4 z-110">
         {/* WhatsApp FAB */}
         <FloatingIcon
-          href="https://wa.me/yournumber"
+          href={whatsappLink}
           bgColor="bg-black"
           icon={<FaWhatsapp />}
           label="WhatsApp"
         />
         {/* Call FAB */}
         <FloatingIcon
-          href="tel:+123456789"
+          href={phoneLink}
           bgColor="bg-black"
           icon={<FaPhone />}
           label="Call Us"
         />
         {/* Trial FAB */}
         <FloatingIcon
-          href="#pricing"
+          href={trialLink}
           bgColor="bg-black"
           icon={<FaCalendarCheck />}
           label="Book Trial"
@@ -208,12 +218,47 @@ function FillButton({
   className = "",
   fillColor = "bg-white",
   hoverTextColor = "group-hover:text-black",
+  href,
+  target,
+  rel,
 }: {
   children: React.ReactNode;
   className?: string;
   fillColor?: string;
   hoverTextColor?: string;
+  href?: string;
+  target?: string;
+  rel?: string;
 }) {
+  if (href) {
+    return (
+      <motion.a
+        initial="initial"
+        whileHover="hover"
+        className={`relative overflow-hidden px-7 py-3 rounded-full border text-[12px] font-[Helvetica] font-bold uppercase tracking-[0.15em] flex items-center gap-2 group z-10 cursor-pointer ${className}`}
+        href={href}
+        target={target}
+        rel={rel}
+      >
+        <span
+          className={`relative z-30 flex items-center gap-2 text-white transition-colors duration-300 ${hoverTextColor}`}
+        >
+          {children}
+        </span>
+        <motion.div
+          variants={{ initial: { y: "100%" }, hover: { y: "0%" } }}
+          transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+          className={`absolute inset-0 z-20 ${fillColor}`}
+        />
+        <motion.div
+          variants={{ initial: { y: "0%" }, hover: { y: "-100%" } }}
+          transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+          className="absolute inset-0 bg-black z-10"
+        />
+      </motion.a>
+    );
+  }
+
   return (
     <motion.button
       initial="initial"

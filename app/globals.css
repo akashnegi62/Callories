@@ -15,6 +15,10 @@
   src: url(../public/font/HelveticaNeueRoman.woff2);
 }
 
+*{
+  scroll-behavior: smooth;
+}
+
 :root {
   /* Light Theme */
   --white-bg: #dededa;
