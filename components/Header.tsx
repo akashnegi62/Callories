@@ -8,6 +8,7 @@ import {
   useMotionValueEvent,
 } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import {
   FaWhatsapp,
   FaPhone,
@@ -58,10 +59,15 @@ export default function Header() {
       >
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           {/* --- Logo --- */}
-          <Link href="/" className="group">
-            <h1 className="text-2xl md:text-3xl font-[FormulaBold] uppercase tracking-widest text-white">
-              CALLORIES<span className="text-(--red)">.</span>
-            </h1>
+          <Link href="/" className="group flex items-center">
+            <Image
+              src="/Img/logo.png"
+              alt="Calories Logo"
+              width={180}
+              height={45}
+              className="h-11 w-auto object-contain"
+              priority
+            />
           </Link>
 
           {/* --- Desktop Navigation Tabs --- */}

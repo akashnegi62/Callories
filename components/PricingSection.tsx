@@ -6,8 +6,8 @@ import { motion } from "framer-motion";
 const pricingPlans = [
   {
     duration: "1 Month",
-    subtitle: "Not much preferred",
-    price: "6,999",
+    subtitle: "Beginner",
+    price: "4,999",
     billing: "",
     subPrice: "/month",
     saveText: "",
@@ -16,21 +16,21 @@ const pricingPlans = [
   },
   {
     duration: "3 Month",
-    subtitle: "Best for visible transformation",
-    price: "16,999",
+    subtitle: "Value or Intermediate",
+    price: "12,999",
     billing: "",
-    subPrice: "Only ₹5,666/month",
-    saveText: "Save ₹1,333",
+    subPrice: "/month",
+    saveText: "",
     buttonText: "ENROLL NOW",
     isFeatured: true,
   },
   {
     duration: "6 Month",
-    subtitle: "Best for long-term lifestyle change",
-    price: "32,999",
+    subtitle: "Advanced Level",
+    price: "23,999",
     billing: "",
-    subPrice: "Only ₹5,500/month",
-    saveText: "Save ₹1,499",
+    subPrice: "/month",
+    saveText: "",
     buttonText: "ENROLL NOW",
     isFeatured: false,
   },
@@ -111,7 +111,7 @@ export default function PricingSection() {
                 <h3 className="text-3xl font-[FormulaBold] uppercase tracking-wider mb-1">
                   {plan.duration}
                 </h3>
-                <p className="text-zinc-500 text-xs uppercase font-[Helvetica] tracking-wider">
+                <p className="text-zinc-500 text-md font-[Helvetica] tracking-wider">
                   {plan.subtitle}
                 </p>
               </div>
