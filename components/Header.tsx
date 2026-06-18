@@ -59,7 +59,7 @@ export default function Header() {
       >
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           {/* --- Logo --- */}
-          <Link href="/" className="group flex items-center">
+          <Link href="/" className="group flex gap-2 items-end">
             <Image
               src="/Img/logo.png"
               alt="Calories Logo"
@@ -68,6 +68,7 @@ export default function Header() {
               className="h-11 w-auto object-contain"
               priority
             />
+            <h1 className="text-white text-3xl font-[Formula] tracking-wider">CALLORIES.</h1>
           </Link>
 
           {/* --- Desktop Navigation Tabs --- */}
