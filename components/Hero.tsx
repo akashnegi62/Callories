@@ -93,7 +93,7 @@ export default function Hero() {
               muted
               loop
               playsInline
-              src="/hero.mp4"
+              src="main.mp4"
             />
           </motion.div>
         </div>
@@ -146,37 +146,6 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* ───────── MOVING TEXT (NOW WORKS) ───────── */}
-        {/* <div className="absolute inset-0 z-30 flex items-center overflow-hidden pointer-events-none select-none">
-          <motion.div
-            className="flex whitespace-nowrap"
-            animate={{ x: ["0%", "-50%"] }}
-            transition={{
-              repeat: Infinity,
-              duration: 50,
-              ease: "linear",
-            }}
-          >
-            {Array.from({ length: 6 }).map((_, i) => (
-              <span
-                key={i}
-                className="hero-text mx-[3vw] font-black"
-                style={{
-                  fontSize: "clamp(3rem, 12vw, 14rem)",
-                  letterSpacing: "-0.04em",
-                  lineHeight: 0.85,
-                  color: "#ffffff",
-                  mixBlendMode: "difference",
-                }}
-              >
-                Get Fit Together.&nbsp; &nbsp;
-                <span className="text-(--red)">Play More.</span>&nbsp; &nbsp;
-                See Real Results.
-              </span>
-            ))}
-          </motion.div>
-        </div> */}
-
         {/* ───────── 3. SUB-HEADLINE (BELOW VIDEO) ───────── */}
         <motion.div className="hidden md:block lg:block 2xl:block absolute top-[82%] left-1/2 -translate-x-1/2 w-full max-w-3xl md:max-w-lg lg:max-w-xl 2xl:max-w-3xl px-6 z-40 text-center md:text-center lg:text-center pointer-events-none">
           <h1 className="text-white text-sm md:text-base lg:text-lg leading-relaxed font-medium tracking-wide">
@@ -205,7 +174,8 @@ export default function Hero() {
 
           {/* Bottom Right */}
           <div className="absolute bottom-20 md:bottom-60 right-5 lg:bottom-[15%] lg:right-[7%] text-white/60 font-bold text-xl md:text-3xl lg:text-3xl leading-[1.1] tracking-tight text-center">
-            4 day/week <br />offline <br /> course.
+            4 day/week <br />
+            offline <br /> course.
           </div>
         </div>
 
