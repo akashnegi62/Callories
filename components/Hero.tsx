@@ -69,7 +69,7 @@ export default function Hero() {
           style={{ opacity: overlayOpacity }}
           className="absolute top-[15%] md:top-[16%] lg:top-[15%] left-0 right-0 z-40 flex justify-center px-6 pointer-events-none"
         >
-          <div className="text-white text-sm md:text-base lg:text- font-bold 2xl:text-md">
+          <div className="hidden md:block lg:block text-white text-sm md:text-base lg:text- font-bold 2xl:text-md">
             Trusted by 50,000 member across Smash2play venues.
           </div>
         </motion.div>
@@ -178,7 +178,7 @@ export default function Hero() {
         </div> */}
 
         {/* ───────── 3. SUB-HEADLINE (BELOW VIDEO) ───────── */}
-        <motion.div className="hidden md:block lg:block 2xl:block absolute top-[82%] left-1/2 -translate-x-1/2 w-full max-w-3xl md:max-w-sm lg:max-w-xl 2xl:max-w-3xl px-6 z-40 text-center md:text-left lg:text-center pointer-events-none">
+        <motion.div className="hidden md:block lg:block 2xl:block absolute top-[82%] left-1/2 -translate-x-1/2 w-full max-w-3xl md:max-w-lg lg:max-w-xl 2xl:max-w-3xl px-6 z-40 text-center md:text-center lg:text-center pointer-events-none">
           <h1 className="text-white text-sm md:text-base lg:text-lg leading-relaxed font-medium tracking-wide">
             Lose or gain weight through sports, fitness, yoga & expert coaching
             — with personalized diet plans, personal psychologist, and a
@@ -189,23 +189,23 @@ export default function Hero() {
         {/* ───────── GHOST TEXT ───────── */}
         <div className="absolute inset-0 z-40 pointer-events-none select-none">
           {/* Top Left */}
-          <div className="absolute top-20 lg:top-[20%] 2xl:top-[8%] left-[4%] text-white/60 font-bold text-[clamp(2rem,5vw,4rem)] lg:text-5xl 2xl:text-[clamp(2rem,5vw,4rem)] leading-[1.1] tracking-tight text-center">
+          <div className="absolute top-30 md:top-60 left-10 lg:top-[20%] lg:left-[8%] text-white/60 font-bold text-2xl md:text-3xl lg:text-5xl leading-[1.1] tracking-tight text-center">
             Weight <br /> loss.
           </div>
 
           {/* Top Right */}
-          <div className="absolute top-20 lg:top-[20%] 2xl:top-[8%] right-[4%] text-white/60 font-bold text-[clamp(2rem,5vw,4rem)] lg:text-5xl 2xl:text-[clamp(2rem,5vw,4rem)] leading-[1.1] tracking-tight text-center">
+          <div className="absolute top-30 md:top-60 right-5 lg:top-[20%] lg:right-[8%] text-white/60 font-bold text-2xl md:text-3xl lg:text-5xl leading-[1.1] tracking-tight text-center">
             Get Fit <br /> Together.
           </div>
 
           {/* Bottom Left */}
-          <div className="absolute bottom-20 lg:bottom-[10%] 2xl:bottom-[12%] left-[4%] text-white/60 font-bold text-[clamp(2rem,5vw,4rem)] lg:text-5xl 2xl:text-[clamp(2rem,5vw,4rem)] leading-[1.1] tracking-tight text-center">
+          <div className="absolute bottom-20 md:bottom-60 left-10 lg:bottom-[15%] lg:left-[8%] text-white/60 font-bold text-2xl md:text-3xl lg:text-5xl leading-[1.1] tracking-tight text-center">
             Play More. <br /> See Real <br /> Results.
           </div>
 
           {/* Bottom Right */}
-          <div className="absolute bottom-20 lg:bottom-[10%] 2xl:bottom-[12%] right-[2%] text-white/60 font-bold text-[clamp(2rem,5vw,4rem)] lg:text-5xl 2xl:text-[clamp(2rem,5vw,4rem)] leading-[1.1] tracking-tight text-center">
-            5 day/week <br />offline <br /> course.
+          <div className="absolute bottom-20 md:bottom-60 right-5 lg:bottom-[15%] lg:right-[7%] text-white/60 font-bold text-2xl md:text-3xl lg:text-5xl leading-[1.1] tracking-tight text-center">
+            4 day/week <br />offline <br /> course.
           </div>
         </div>
 
