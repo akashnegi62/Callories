@@ -189,22 +189,22 @@ export default function Hero() {
         {/* ───────── GHOST TEXT ───────── */}
         <div className="absolute inset-0 z-40 pointer-events-none select-none">
           {/* Top Left */}
-          <div className="absolute top-30 md:top-60 left-10 lg:top-[20%] lg:left-[8%] text-white/60 font-bold text-2xl md:text-3xl lg:text-5xl leading-[1.1] tracking-tight text-center">
+          <div className="absolute top-30 md:top-60 left-10 lg:top-[20%] lg:left-[8%] text-white/60 font-bold text-xl md:text-3xl lg:text-3xl leading-[1.1] tracking-tight text-center">
             Weight <br /> loss.
           </div>
 
           {/* Top Right */}
-          <div className="absolute top-30 md:top-60 right-5 lg:top-[20%] lg:right-[8%] text-white/60 font-bold text-2xl md:text-3xl lg:text-5xl leading-[1.1] tracking-tight text-center">
+          <div className="absolute top-30 md:top-60 right-5 lg:top-[20%] lg:right-[8%] text-white/60 font-bold text-xl md:text-3xl lg:text-3xl leading-[1.1] tracking-tight text-center">
             Get Fit <br /> Together.
           </div>
 
           {/* Bottom Left */}
-          <div className="absolute bottom-20 md:bottom-60 left-10 lg:bottom-[15%] lg:left-[8%] text-white/60 font-bold text-2xl md:text-3xl lg:text-5xl leading-[1.1] tracking-tight text-center">
+          <div className="absolute bottom-20 md:bottom-60 left-10 lg:bottom-[15%] lg:left-[8%] text-white/60 font-bold text-xl md:text-3xl lg:text-3xl leading-[1.1] tracking-tight text-center">
             Play More. <br /> See Real <br /> Results.
           </div>
 
           {/* Bottom Right */}
-          <div className="absolute bottom-20 md:bottom-60 right-5 lg:bottom-[15%] lg:right-[7%] text-white/60 font-bold text-2xl md:text-3xl lg:text-5xl leading-[1.1] tracking-tight text-center">
+          <div className="absolute bottom-20 md:bottom-60 right-5 lg:bottom-[15%] lg:right-[7%] text-white/60 font-bold text-xl md:text-3xl lg:text-3xl leading-[1.1] tracking-tight text-center">
             4 day/week <br />offline <br /> course.
           </div>
         </div>
