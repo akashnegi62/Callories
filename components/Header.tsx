@@ -68,7 +68,7 @@ export default function Header() {
               className="h-11 w-auto object-contain"
               priority
             />
-            <h1 className="text-white text-3xl font-[Formula] tracking-wider">CALLORIES.</h1>
+            <h1 className="text-white text-3xl font-[Formula] tracking-wider">CALLORIES</h1>
           </Link>
 
           {/* --- Desktop Navigation Tabs --- */}
